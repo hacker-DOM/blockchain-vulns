@@ -1,0 +1,1179 @@
+// [cols="10,10,30,25,8,8,9"]
+[cols="10,10,40,40"]
+|===
+| Company | Link | Blockthreat | Notes
+
+| MakerDAO
+| https://www.blockthreat.io/p/week-19-2019
+a|
+https://blog.zeppelin.solutions/technical-description-of-makerdao-governance-critical-vulnerability-facce6bf5d5e[Critical Vulnerability in MakerDAO] - a technical writeup on the vulnerability in the MakerDAO governance protocol that could result in a malicious actor removing votes and indefinitely locking user’s MKR tokens. PeckShield has an https://medium.com/@peckshield/critical-itchydao-bug-in-the-voting-contract-of-makerdao-5fad7c69a0b2[additional writeup] of the vulnerability with source code analysis.
+a| - governance
+
+| 0x
+| https://www.blockthreat.io/p/week-28-2019
+a| **https://samczsun.com/the-0x-vulnerability-explained/[The 0x vulnerability, explained]** - on July 12th, 2019 a critical bug in signature verification caused 0x to https://blog.0xproject.com/shut-down-of-0x-exchange-v2-0-contract-and-migration-to-patched-version-6185097a1f39[shut down] the v2 exchange. The vulnerable function accepted a magic value 0x04 as a valid signature for non smart contract accounts. According to the postmortem, there was https://medium.com/consensys-diligence/return-data-length-validation-a-bug-we-missed-4b7bbea8e9ab[no evidence that the vulnerability was exploited] and the 0x Core Team has patched the vulnerability in the span of a couple of hours.
+a| - signature verification / crypto
+
+| Livepeer
+| https://www.blockthreat.io/p/week-31-2019
+a| **https://samczsun.com/the-livepeer-slashing-vulnerability/[The Livepeer slashing vulnerability]** - a critical protocol bug in the Livepeer smart contract could cause arbitrarily slash transcoders in the network and net attacker the “findersFee” to profit form it. According to the https://samczsun.com/the-livepeer-slashing-vulnerability/[incident post-mortem] the vulnerability was patched in under 12 hours of notification.
+a| data validation / crypto?
+
+| MakerDAO
+| https://www.blockthreat.io/p/week-37-2019
+a| **https://hackerone.com/reports/672664[Maker DAO Collateral Theft]** - a vulnerability in the _end contract_ allowed users with DSR deposits to steal collateral in case of a shutdown (e.g. when migrating to a new contract). The bug was reported on Hacker One and earned $25,000 bounty.
+a| insufficient update of state variables
+
+
+
+| AirSwap
+| https://www.blockthreat.io/p/week-37-2019
+a| **https://medium.com/fluidity/critical-vulnerability-in-a-new-airswap-smart-contract-c1204e04d7d3[Critical Vulnerability in a New AirSwap Smart Contract]** - a vulnerability was discovered and patched in the AirSwap smart contract which allowed an attacker to perform swaps without a counterparty signature.
+a| signatures, authentication, data validation, crypto
+
+
+
+| Fairwin
+| https://www.blockthreat.io/p/week-39-2019
+a| **https://www.reddit.com/r/ethereum/comments/darmk9/vulnerability_disclosure_fairwin_frontrunning_in/[\[Vulnerability Disclosure\] \[FairWin\] Front-running in the currently most used Ethereum contract]** - details of the vulnerability in a https://etherscan.io/address/0x01eacc3ae59ee7fbbc191d63e8e1ccfdac11628c#code[popular scam] on the Ethereum network. The front-running attack allows anyone to steal investments while the code itself allows contract owners to empty all of the stored funds.
+a| front-running
+
+| ENS
+| https://www.blockthreat.io/p/week-40-2019
+a| **https://medium.com/opensea/how-were-resolving-the-issues-with-the-ens-short-name-auctions-93c78158de48[How we’re resolving the issues with the ENS short-name auctions]** - an input validation vulnerability in the Ethereum Name Service (ENS) smart contract allowed an attacker to claim a number of highly sought-after names. This one has a happy ending where https://twitter.com/opensea/status/1179892393585209344[the attacker returned] all of the stolen ENS domain names.
+a| input data validation
+
+| MakerDAO
+| https://www.blockthreat.io/p/week-40-2019
+a| **https://hackerone.com/reports/684092[MakerDAO - Steal ALL collateral during liquidation by exploiting lack of validation in \`flip.kick\`]** - a high-severity vulnerability was reported in the MakerDAO contract which allowed an attacker to steal all collateral stored in the MCD system during the liquidation phase.
+a| input data validation
+
+| Tornado Cash
+| https://www.blockthreat.io/p/week-41-2019
+a| **https://medium.com/@tornado.cash.mixer/tornado-cash-got-hacked-by-us-b1e012a3c9a8[Tornado.cash got hacked. By us.]** - a https://github.com/iden3/circomlib/commit/109cdf40567fce284dca1d535819ce28922653e0#diff-d115e3788e56ac3d62b1f243561d50e5[critical bug] was found in the zk-SNARK implementation of a https://github.com/iden3/circomlib/blob/master/circuits/mimcsponge.circom[circomlib library] used by the Tornado.cash project. The bug allowed an attacker to withdraw ETH from the vulnerable contract without having a valid deposit.
+a| zk-snark, crypto
+
+| MakerDAO
+| https://www.blockthreat.io/p/week-50-2019
+a| **https://medium.com/coinmonks/how-to-turn-20m-into-340m-in-15-seconds-48d161a42311[How to turn $20M into $340M in 15 seconds] -** a theoretical attack scenario against MakerDAO which may result in collateral theft. The attack requires 80K MKR which only a the Maker Foundation and a few investors investors like a16z currently have. Following the article, Maker Foundation has increased the Governance Security Module (GSM) delay to 24 hours to allow proper detection to an otherwise instantaneous attack.
+a| governance
+
+| HegicOptions
+| https://www.blockthreat.io/p/week-21-2020
+a| **https://twitter.com/Rewkang/status/1263435897954988033[HegicOptions has shut down again] -** this one is not a typo, a design flaw in Hegic was https://gist.github.com/samczsun/2f4ee8619470b464e86c3f1a1ea17e58[exploited] to make a quick $3340 profit.
+a| combinational
+
+| tBTC
+| https://www.blockthreat.io/p/week-21-2020
+a| **https://blog.keep.network/details-of-the-tbtc-deposit-pause-on-may-18-2020-38d7dd555663[Details of the tBTC Deposit Pause on May 18, 2020]** - additional details about the tBTC bug causing shutdown due to Bitcoin address parsing. An additional vulnerability was also reported where a malicious redeemer could craft an output script which would result in an invalid Bitcoin transaction to seize signer bonds and net profit in some circumstances.
+a| bitcoin address parsing; input data validation
+
+| Etheroll
+| https://www.blockthreat.io/p/week-21-2020
+a| **https://www.reddit.com/r/etheroll/comments/g7zrvz/contract_is_currently_in_lockdown_mode_all_funds/[Etheroll exploited]** - a clever exploit which takes advantage of infrequent chain forks to game the gambling smart contract.
+a| blockchain forks;
+
+| DeFi Saver Exchange
+| https://www.blockthreat.io/p/week-25-2020
+a| Another **https://twitter.com/DeFiSaver/status/1274093625559973890[vulnerability]** and a **https://medium.com/defi-saver/disclosing-a-recently-discovered-exchange-vulnerability-fcd0b61edffe[pre-emptive hack]** on the DeFi Saver Exchange resulted in $30k of funds moved to a safe location.
+a| not detailed
+
+| Argent
+| https://www.blockthreat.io/p/week-25-2020
+a| **https://blog.openzeppelin.com/argent-vulnerability-report/[A high severity vulnerability in Argent wallet recovery process]** which can result in funds theft for wallets with no recovery guardians.
+a| zero-length array; zero-length list
+
+| Balancer
+| https://www.blockthreat.io/p/blockthreat-week-26-2020
+a| Two **https://medium.com/@1inch.exchange/balancer-hack-2020-a8f7131c980e[Balancer multi-token pools were exploited]** resulting in a loss of $500k. The attacker used a flash loan to exploit a vulnerability in the way Balancer deals with deflationary tokens. In the **https://medium.com/balancer-protocol/update-2-incident-with-non-standard-erc20-deflationary-tokens-f3a7cedf6292[incident report]** by Balancer, the team revealed that the issue was reported to their **https://medium.com/@ankur_63065/balancer-labs-incident-when-bug-bounties-fail-d783553bbcaf[bug bounty]** but dismissed as impractical to exploit.
+a| weird tokens in an AMM; de-fi composition
+
+| Atomic Loans
+| https://www.blockthreat.io/p/blockthreat-week-26-2020
+a| **https://atomic.loans/blog/vulnerability-disclosure-and-pause-new-loan-requests/[Two vulnerabilities were reported]** in Atomic Loans smart contracts which could allow a malicious borrower to unlock their BTC collateral without repaying their loan by front-running a loan cancellation transaction. The vulnerability was responsibly disclosed and patched by the developer.
+a| link doesn't work; couldn't find info elsewhere either
+
+| Vether
+| https://www.blockthreat.io/p/blockthreat-week-27-2020
+a| **https://twitter.com/chiachih_wu/status/1278163905278181376[A successfully exploited vulnerability in Vether]** resulted in $900k worth of VETH loss.
+a| access control due to bad control flow logic.
+
+| Opyn
+| https://www.blockthreat.io/p/blockthreat-week-32-2020
+a| **https://medium.com/opyn/opyn-eth-put-exploit-c5565c528ad2[Opyn ETH Put contracts have been exploited]** to steal _371k USDC_. Another _572k USDC_ were recovered after the developers were **https://medium.com/opyn/opyn-eth-put-exploit-post-mortem-1a009e3347a8[made aware of the exploit and got help from the community]**.
+a| msg.value in a loop?
+
+| yEarn
+| https://www.blockthreat.io/p/blockthreat-week-32-2020
+a| yVault was found to have **https://blog.trailofbits.com/2020/08/05/accidentally-stepping-on-a-defi-lego/[a vulnerability which could have resulted in attackers completely draining pool’s assets]**. The vulnerability was quickly patched after responsibly disclosed by **https://twitter.com/trailofbits/status/1290999997631205376[samczsun]**.
+a| arithmetic, combinational
+
+| xSNXa
+| https://www.blockthreat.io/p/blockthreat-week-34-2020
+a| **https://medium.com/xtoken/xsnxa-false-start-post-mortem-f26a7a735383[Another DeFi project, xSNXa, had to shutdown]** after a vulnerability was discovered and responsibly disclosed by samczun.
+a| price oracle manipulation; defi composition
+
+| Chicken Finance
+| https://www.blockthreat.io/p/blockthreat-week-35-2020
+a| Chicken Finance was **https://twitter.com/DoveyWan/status/1297861641707515905[caught thinly disguising a backdoor in their contract],** YFV is getting **https://medium.com/@yfv.finance/yfv-update-staking-pool-exploit-713cb353ff7d[extorted with staking vulnerability]**, and many other DeFi hacks and vulnerabilities. Check out the excellent **https://medium.com/consensys-diligence/smart-contract-security-newsletter-44-f36241505cc7[Consensys Dilligence - Smart Contract Security Newsletter]** for more details.
+a| rug pull;
+
+| SYFI
+| https://www.blockthreat.io/p/blockthreat-week-36-2020
+a| On September 3, 2020 **https://twitter.com/softyearnfi/status/1301915560654131202[SYFI token rebase mechanism was exploited]** to which allowed **https://twitter.com/A_mplify/status/1302852245059330048?s=20[an attacker]** to empty token’s liquidity on Uniswap worth 740 ETH.
+a|
+
+| Chainlink
+| https://www.blockthreat.io/p/blockthreat-week-36-2020
+a| On August 30, 2020 multiple **https://www.theblockcrypto.com/post/76986/chainlink-nodes-attack-eth[Chainlink node operators have experienced a spam attack]** which resulted in 700 ETH being drained due to inflated gas fees. The attacked allowed a malicious party to mint and sell Chi tokens at a higher price point earning a profit.
+a|
+
+| bZx
+| https://www.blockthreat.io/p/blockthreat-week-37-2020
+a| **https://www.theblockcrypto.com/post/77656/defi-protocol-bzx-attacked-lost-8-million-faulty-code[A minting vulnerability in bZx token]** was exploited which resulted in $8M worth LINK, ETH, USDT, USDC, and DAI getting stolen from the platform. According to **https://bzx.network/blog/incident[the incident report]**, a non-standard transfer function allowed one to set both source and destination to the same address which in turn double the amount owned by the sender.
+a|
+
+| Soda Finance
+| https://www.blockthreat.io/p/blockthreat-week-39-2020
+a| On September 20, 2020 **https://anchainai.medium.com/soda-finance-hack-could-formal-verification-have-prevented-it-code-included-71b6e9f94ea5[a vulnerability in Soda Finance smart contract]** resulted in the loss of 400 ETH ($160K) a day after its launch.
+a| arithmetic
+
+| Lien Finance
+| https://www.blockthreat.io/p/blockthreat-week-39-2020
+a|  On September 19, 2020 **https://medium.com/lien-finance/interruption-of-service-incident-analysis-32077389c13[a vulnerability in Lien Finance]**’s smart contract was discovered and later exploited by **https://samczsun.com/escaping-the-dark-forest/[a white-hat group led by samczsun]**. While no funds were lost, $9.6m worth of ETH were at risk.
+a| zero-length list? combinational
+
+| Eminence.Finance
+| https://www.blockthreat.io/p/blockthreat-week-40-2020
+a| On September 28, 2020 **https://www.theblockcrypto.com/post/79061/yfi-eminence-defi-protocol-exploited[Eminence.Finance contract was exploited]** which resulted in the theft of $15M worth of Eminence token. The contract attracted investors even before it was publicly announced or properly tested. **An attacker used flash loans** to **https://sampriestley.com/defi-arbs-explained-15m-eminence-attack/[exploit an arbitrage flaw]** in the way EMN is minted. @FrankResearcher tweeted a detailed transaction analysis which may hold **https://mobile.twitter.com/frankresearcher/status/1310885097252556801[clues in identifying the perp]**. Interestingly, the attacker **https://etherscan.io/tx/0x7bc97357364222207f1f011b22ad98ba78fcd3c25d3398346caa3928cdf4a4dd[returned $8M]** of their loot back to the Eminence contract for an unknown reason.
+a| flashloan; arbitrage flaw
+
+| Incognito
+| https://www.blockthreat.io/p/blockthreat-week-40-2020
+a| **https://we.incognito.org/t/how-a-smart-contract-vulnerability-was-discovered-and-fixed/6416[Double-spend vulnerability]** was responsibly disclosed and patched in the Incognito smart contract by **https://twitter.com/samczsun/status/1311335972378996743[samczsun]**.
+a| double-spend
+
+| Curve, Swerve
+| https://www.blockthreat.io/p/blockthreat-week-41-2020
+a| **https://github.com/98farhan94/doc/blob/main/Curve_Vulnerability_Report.pdf[A flaw was discovered]** in Curve, Swerve and other related contracts which could result in funds loss. The vulnerability was responsibly disclosed by **https://twitter.com/98farhan94[Shaikh Farhan]** as part of Curve’s bug bounty program.
+a| arithmetic
+
+| SushiSwap
+| https://www.blockthreat.io/p/blockthreat-week-42-2020
+a| **https://medium.com/@DraculaProtocol/sushiswap-smart-contract-bug-and-quality-of-audits-in-community-f50ee0545bc6[A reward manipulation vulnerability in SushiSwap’s MasterChef contract]** was disclosed by Dracula Protocol. The vulnerability can only be exploited by the smart contract owner at the time of the deployment.
+a| arithmetic; combinational; rewards
+
+| Harvest Finance
+| https://www.blockthreat.io/p/blockthreat-week-43-2020
+a| On October 25th, 2020 **https://medium.com/harvest-finance/harvest-flashloan-economic-attack-post-mortem-3cf900d65217[an arbitrage weakness in Harvest Finance]** was **https://rekt.ghost.io/harvest-finance-rekt/[exploited to profit an attacker]** about **https://www.zdnet.com/article/hacker-steals-24-million-from-cryptocurrency-service-harvest-finance/[$24M worth of USDC and USDT]**. Following the hack, the attacker has transferred gained to funds to the following bitcoin addresses using REN Protocol:
+a|
+
+| BurgerSwap DeFi
+| https://www.blockthreat.io/p/blockthreat-week-43-2020
+a| **https://zengo.com/burgerswap-vulnerability/[A reentrancy vulnerability was discovered and responsibly disclosed in BurgerSwap DeFi]** service hosted on Binance Smart Chain.
+a|
+
+| Yearn
+| https://www.blockthreat.io/p/blockthreat-week-44-2020
+a| A **https://github.com/iearn-finance/yearn-security/blob/master/disclosures/2020-10-30.md[flash loan vulnerability]** was responsibly disclosed to the Yearn team which quickly patched it. The issues was caused by the lack of slippage checks in the TUSD deposit handling function.
+a|
+
+| MakerDAO
+| https://www.blockthreat.io/p/blockthreat-week-44-2020
+a| **https://forum.makerdao.com/t/urgent-flash-loans-and-securing-the-maker-protocol/4901[A flash loan was used to pass a proposal on MakerDAO]**. While the party behind the vote was legitimate and the vote did not cause a negative outcome, this **https://etherscan.io/tx/0x91cba77b2db3c1bdb726e160ba792d8d540adbc511e4f5c8b595545db9b61c3e[transaction]** illustrates a **https://arxiv.org/abs/2002.08099[previously discussed governance risk on the Maker platform]**.
+a|
+
+| SushiSwap
+| https://www.blockthreat.io/p/blockthreat-week-44-2020
+a| **https://research.nansen.ai/sushiswap-farming/[SushiSwap farming arbitrage exploit]** is being continuously exploited by whales.
+a|
+
+| Axion Network
+| https://www.blockthreat.io/p/blockthreat-week-45-2020
+a| On November 2, 2020 Axion Network smart contract was compromised when an attacker minted 80B AXN tokens and **https://etherscan.io/tx/0xc2a4a11312384fb34ebd70ea4ae991848049a2688a67bbb2ea1924073ed089b4[exchanged them for 348 ETH ($133K)].** According to Certik, which has previously audited the contract, **https://twitter.com/certik_io/status/1323423417215913986[the malicious minting code was added after the audit]**.
+a|
+
+| Percent Finance
+| https://www.blockthreat.io/p/blockthreat-week-45-2020
+a| A coding error resulted in **https://percent-finance.medium.com/important-announcement-d35f9a0df112[$1M worth of crypto was permanently locked]** by Percent Finance, a Compound fork.
+a|
+
+| Value DeFi
+| https://www.blockthreat.io/p/blockthreat-week-46-2020
+a| On November 14, 2020 **https://valuedefi.medium.com/multistables-vault-exploit-post-mortem-d11b0635788f[Value DeFi developers reported that their smart contract was exploited]** which resulted in a loss of about **https://medium.com/@peckshield/value-defi-incident-root-cause-analysis-fbab71faf373[7.4M DAI]**. Interestingly the attack came shortly after Value DeFi tweeted about **https://rekt.ghost.io/value-defi-rekt/[project’s invulnerability to Flash-loan attacks]**. Following the hack, the attacker returned 2M DAI with a **https://etherscan.io/tx/0x217298bd38ed12b16e0cd65ce0b464c3810e0479a99a1464aed5e6768b2a4c50[taunting note questioning the earlier tweet]**. The attacker **https://etherscan.io/token/0x6b175474e89094c44da98b954eedeac495271d0f?a=0xa773603b139ae1c52d05b35796df3ee76d8a9a2f[returned 95K more DAI]** after hearing **https://etherscan.io/tx/0x88792d24670eaa93af7a5ac6751674a484a9951b5bf01510a14ebb00b2de6444[on-chain user pleas]**.
+a|
+
+| Akropolis
+| https://www.blockthreat.io/p/blockthreat-week-46-2020
+a| On November 12, 2020 **https://www.notion.so/Akropolis-Hack-Update-10f48dfa44a544e5a7b24f298c759c6d[Akropolis DeFi project was exploited]** resulting in **https://medium.com/@peckshield/akropolis-incident-root-cause-analysis-c11ee59e05d4[a loss of 2M DAI through a reentrancy vulnerability]**.
+a|
+
+| Pickle Finance
+| https://www.blockthreat.io/p/blockthreat-week-47-2020
+a| On November 21, 2020 **https://picklefinance.medium.com/pickle-was-hacked-and-there-has-been-a-loss-of-funds-414b99969c29[Pickle Finance’s pDAI PickleJar was hacked]** which resulted in **https://peckshield.medium.com/pickle-incident-root-cause-analysis-5d73496ebc9f[the loss of 19.76M DAI]**. **https://rekt.ghost.io/pickle-finance-rekt/[A whitehat team]** was able to quickly **https://github.com/banteg/evil-jar/blob/master/readme.md[analyze and replicate the exploit]** and help Pickle Finance implement mitigations. Interestingly, **https://coverprotocol.medium.com/11-21-20-claim-outcome-for-pickle-finance-aa2fcc56cb7c[the loss was covered]** by COVER protocol insurance.
+a|
+
+| 88mph
+| https://www.blockthreat.io/p/blockthreat-week-47-2020
+a| On November 17, 2020 **https://medium.com/88mphapp/88mph-mphminter-contract-issue-6365dbcacb4f[two separate vulnerabilities were discovered]** in the **88mph** project. The first **https://peckshield.medium.com/88mph-incident-root-cause-analysis-ce477e00a74d[money printing bug]** was exploited by an unknown attack and resulted in a $100K loss. The second vulnerability was responsibly disclosed by **https://samczsun.com/author/samczsun/[samczsun]** and used to **https://peckshield.medium.com/88mph-incident-root-cause-analysis-ce477e00a74d[rescue the remainder of funds]** in the Uniswap pool.
+a|
+
+| Origin Protocol
+| https://www.blockthreat.io/p/blockthreat-week-47-2020
+a| On November 16, 2020 **https://medium.com/originprotocol/urgent-ousd-has-hacked-and-there-has-been-a-loss-of-funds-7b8c4a7d534c[Origin Protocol contract was exploited]** using **https://peckshield.medium.com/origin-dollar-incident-root-cause-analysis-f27e11988c90[a reentrancy vulnerability in the mint logic]**. **https://twitter.com/FrankResearcher/status/1328595389629534210?s=20[The attack]** resulted in a $7.7M loss.
+a|
+
+| Cheese Bank
+| https://www.blockthreat.io/p/blockthreat-week-47-2020
+a| On November 16, 2020 A **https://peckshield.medium.com/cheese-bank-incident-root-cause-analysis-d076bf87a1e7[price oracle weakness]** in the **https://cheesebank2020.medium.com/cheese-bank-detailed-statement-a765372dd84f[Cheese Bank DeFi contract was exploited]** using a flash loan attack which resulted in a $3.3M loss.
+a| 
+
+| SushiSwap
+| https://www.blockthreat.io/p/blockthreat-week-48-2020
+a|  On November 29th, 2020 **https://twitter.com/Juan_Snow1/status/1332992258115657730?s=20[a vulnerability in SushiSwap was exploited]** to steal $15K from the platform. **https://rekt.ghost.io/sushiswap-saved-0xmaki-speaks-out/[The attack does not appear to be malicious]**, but rather the result of someone experimenting with the platform.
+a|
+
+| Compound/Chainlink
+| https://www.blockthreat.io/p/blockthreat-week-48-2020
+a| On November 26, 2020 about **https://www.theblockcrypto.com/post/85850/dai-compound-dydx-liquidations-defi[$88.4M worth of collateral were liquidated on the Compound platform]** caused by the Coinbase price oracle reporting a spike in DAI to $1.3. While it’s not clear if the price spike was the result of a malicious action, it is a reminder into **https://rekt.ghost.io/coinbase-the-oracle/[the crucial role price oracles play in securing the DeFi ecosystem]**.
+a|
+
+| Seal Finance
+| https://www.blockthreat.io/p/blockthreat-week-50-2020
+a| On December 11th, 2020 **https://blocksecteam.medium.com/security-incident-on-seal-finance-fa79c27a1c3b[a vulnerability in Seal Finance]** was exploited to steal $58K worth of SEAL tokens.
+a|
+
+| Aave
+| https://www.blockthreat.io/p/blockthreat-week-50-2020
+a| **https://medium.com/aave/aave-security-newsletter-546bf964689d[AAVE team fixed a DoS vulnerability]** caused by an incompletely initialized contract. The vulnerability was responsibly disclosed by **https://twitter.com/montyly[Josselin Feist]** through AAVE’s bug bounty program.
+a|
+
+| Warp Finance
+| https://www.blockthreat.io/p/blockthreat-week-51-2020
+a| On December 17th, 2020 an **https://peckshield.medium.com/warpfinance-incident-root-cause-analysis-581a4869ee00[oracle manipulation vulnerability]** in Warp Finance was exploited which resulted in the loss of **https://www.rekt.news/warp-finance-rekt/[$7.8M worth of DAI and USDC]** tokens. Interestingly, the 75% of the stolen assets remained locked in the Warp Finance as a collateral which was **https://warpfinance.medium.com/warp-finance-exploit-summary-recovery-of-funds-5b8fe4a11898[recovered and returned to the users]**.
+a|
+
+| Curve Finance/IDLE
+| https://www.blockthreat.io/p/blockthreat-week-52-2020
+a| **https://twitter.com/CurveFinance/status/1342442706879057920[Curve Finance asked users to withdraw IDLE tokens]** from the pool after discovering a flaw that would make them unsafe in the long-term.
+a|
+
+| COVER Protocol
+| https://www.blockthreat.io/p/blockthreat-week-53-2020
+a| On December 28, 2020 **https://coverprotocol.medium.com/12-28-post-mortem-34c5f9f718d4[COVER Protocol minting vulnerability]** resulted in **https://www.rekt.news/cover-rekt/[$9.4M worth of COVER token minted]** by multiple attackers. One of the attackers, Grap Finance, has publicly acknowledged the hack and **https://cryptobriefing.com/defi-developers-claim-cover-protocol-hack-return-funds/[returned $3.2M with a message for Cover devs]**. **https://peckshield.medium.com/cover-incident-the-unlimited-token-minting-vulnerability-f3afd9d2405c[Several]** **https://ciphertrace.com/infinite-minting-exploit-nets-attacker-4-4m/[write]** **https://mp.weixin.qq.com/s/l6MM3SP7dF8qEW3D64ysUg[ups]** **https://www.notion.so/Cover-Infinite-Mint-Exploit-0a234cc279484982ae559bb5ab54532a#6359c6970a1b414499b76241a7e7b967[describe]** **https://github.com/emilianobonassi/cover-exploit/[details of the hack]**. Interestingly, Binance vowed to **https://www.binance.com/en/support/announcement/200da2a0f3c74706841a9214fd55c94d[compensate $10M of the stolen funds to its customers]**.
+a|
+
+| yCredit Finance
+| https://www.blockthreat.io/p/blockthreat-week-1-2021
+a| On January 1st, 2021 **https://blocksecteam.medium.com/deposit-less-get-more-ycredit-attack-details-f589f71674c3[yCredit Finance minting vulnerability]** was successfully **https://github.com/banteg/exploit-ycredit[exploited]**.
+a|
+
+| DeFi Saver
+| https://www.blockthreat.io/p/blockthreat-week-1-2021
+a| January 5th, 2020 **https://medium.com/defi-saver/disclosing-a-recently-discovered-vulnerability-d88e3b5cb67[DeFi Saver urgently moved users’ funds to a new contract]** after **https://medium.com/dedaub/ethereum-pawn-stars-5-7m-in-hard-assets-best-i-can-do-is-2-3m-b93604be503e[a vulnerability was responsibly disclosed by the Dedaub team]**.
+a| 
+
+| Synthetix
+| https://www.blockthreat.io/p/blockthreat-week-2-2021
+a| **https://github.com/Synthetixio/synthetix/issues/1025[A multi-collateral liquidation bug was fixed in Synthetix]** on January 6th which could have triggered excess loan liquidations.
+a| 
+
+| The Sandbox DeFi
+| https://www.blockthreat.io/p/blockthreat-week-2-2021
+a| **https://medium.com/sandbox-game/the-sandbox-asset-smart-contract-security-update-a465fd6345e8[A minting vulnerability in The Sandbox DeFi app]** was **https://twitter.com/maurelian_/status/1350459432883396609?s=21[responsibly disclosed by maurelian]** on January 4th. The fix was deployed on Jan 15th.
+a| 
+
+| Venus DeFi
+| https://www.blockthreat.io/p/blockthreat-week-2-2021
+a| **https://coinrivet.com/defi-platform-venus-suffers-vulnerability-with-88-million-reportedly-locked-up/[A potential vulnerability was reported in Venus DeFi project]** hosted on Binance Smart Chain which **https://medium.com/venusprotocol/venus-protocol-update-9cb6470465ea[resulted in $88M worth of ETH and BTC locked up]**.
+a| 
+
+| Saddle Finance
+| https://www.blockthreat.io/p/blockthreat-week-3-2021
+a| **https://coinrivet.com/defi-platform-venus-suffers-vulnerability-with-88-million-reportedly-locked-up/[A potential vulnerability was reported in Venus DeFi project]** hosted on Binance Smart Chain which **https://medium.com/venusprotocol/venus-protocol-update-9cb6470465ea[resulted in $88M worth of ETH and BTC locked up]**.
+a| 
+
+| LivePeer
+| https://www.blockthreat.io/p/blockthreat-week-3-2021
+a| **https://forum.livepeer.org/t/security-vulnerability-disclosure-fixed-delegators-can-increase-stake-and-fees-by-delegating-to-transcoders-under-certain-conditions/1202[LivePeer DeFi project fixed a staking vulnerability]** which could allow attackers to withdraw more LPT and ETH than expected.
+a| 
+
+| SushiSwap
+| https://www.blockthreat.io/p/blockthreat-week-4-2021
+a| On January 27, 2021 **https://slowmist.medium.com/slow-mist-sushiswap-was-attacked-for-the-second-time-a47f2d110a84[SushiSwap DeFi misconfiguration]** was exploited to manipulate the exchange price of a DIGG-WETH pair which netted an attacker 81 ETH ($100K) profit.
+a|
+
+| yEarn
+| https://www.blockthreat.io/p/blockthreat-week-5-2021
+a| On February 4th, 2021 **https://github.com/iearn-finance/yearn-security/blob/master/disclosures/2021-02-04.md[a vulnerability in Yearn’s v1 yDAI vault was exploited]** which resulted in a $11M loss. **https://peckshield.medium.com/the-ydai-incident-analysis-forced-investment-2b8ac6058eb5[Multiple]** **https://twitter.com/FrankResearcher/status/1357639434380992512[exploit]** **https://slowmist.medium.com/slowmist-a-brief-analysis-of-yearn-finance-being-hacked-47a4e2d12c60[analysis]** **https://halborn.com/explained-the-yearn-v1-ydai-hack-feb-2021/[reports]** were **https://www.rekt.news/yearn-rekt/[published]** all pointing to a sophisticated attacker using a chain of transactions to manipulate the pool to yield profit. The hack was **https://twitter.com/bantg/status/1357490497204453376[detected and mitigated within an hour]** of **https://etherscan.io/tx/0x59faab5a1911618064f1ffa1e4649d85c99cfd9f0d64dcebbc1af7d7630da98b[the first transaction]** which helped minimize further damages. Interestingly **https://decrypt.co/56779/tether-freezes-profits-yearn-finance-hack[Tether has already frozen 1.7M]** of stolen funds.
+a|
+
+| DeFlash.finance
+| https://www.blockthreat.io/p/blockthreat-week-5-2021
+a| **https://twitter.com/deflast_finance/status/1356550208000122880?s=20[DeFlash.finance moved users funds after a vulnerability was responsibly disclosed]** that could have resulted in a $580K loss. **https://medium.com/dedaub/look-ma-no-source-hacking-a-defi-service-with-no-source-code-available-c40a6583f28f[Dedaub team has an excellent writeup on reverse engineering closed source contract]** to exploit the flaw.
+a| 
+
+| ArmorFi
+| https://www.blockthreat.io/p/blockthreat-week-5-2021
+a| **https://twitter.com/ArmorFi/status/1356784271923503108?s=20[A vulnerability in ArmorFi was discovered and responsibly disclosed]** by **https://twitter.com/bobface16[Alexander Schlindwein]** through the Immunefi platform. As a reward, Alexander **https://immunefi.medium.com/hacker-earns-largest-ever-crypto-bug-bounty-via-immunefi-1ee96a54cc9f[earned a whopping 1.5M bounty]** and an offer by the ArmorFi’s CTO to a get a tattoo of choice.
+a|
+
+| OpenZeppelin
+| https://www.blockthreat.io/p/blockthreat-week-5-2021
+a| OpenZeppelin fixed an **https://github.com/OpenZeppelin/openzeppelin-contracts/pull/2483[ERC777 reentrancy vulnerability]** after responsibly disclosed by **https://github.com/ritzdorf[@ritzdorf]** and **https://github.com/antonper[@antonper]**.
+a|
+
+| Typhoon.Cash
+| https://www.blockthreat.io/p/blockthreat-week-5-2021
+a| **https://avner1122.medium.com/typhoon-cash-vulnerabilities-e82b0faa54b6[Multiple vulnerabilities reported in Typhoon.Cash]** which may result in griefing, front-running, and integer overflow attacks.
+a|
+
+| Alpha Homora
+| https://www.blockthreat.io/p/blockthreat-week-6-2021
+a| On February 12th, 2021 **https://blog.alphafinance.io/alpha-homora-v2-post-mortem/[Alpha Homora v2 was exploited]** which resulted in the theft of $38M worth of USDC, DAI, USDT, and WETH. **https://www.rekt.news/alpha-finance-rekt/[An insider is suspected to have executed the attack]**.
+a| 
+
+| BT.Finance
+| https://www.blockthreat.io/p/blockthreat-week-6-2021
+a| On February 9th, 2021 **https://btfinance.medium.com/bt-finance-exploit-analysis-report-a0843cb03b28[BT.Finance was exploited]** using a similar exploit as the recent Yearn hack **https://github.com/OriginProtocol/security/blob/master/incidents/2021-02-09-BT-finance.md[to steal $1.7M]**.
+a|
+
+| Growth DeFi rAAVE pool
+| https://www.blockthreat.io/p/blockthreat-week-6-2021
+a| On February 9th, 2021 **https://btfinance.medium.com/bt-finance-exploit-analysis-report-a0843cb03b28[BT.Finance was exploited]** using a similar exploit as the recent Yearn hack **https://github.com/OriginProtocol/security/blob/master/incidents/2021-02-09-BT-finance.md[to steal $1.7M]**.
+a| 
+
+| Curve Finance Yearn v2 pool
+| https://www.blockthreat.io/p/blockthreat-week-6-2021
+a| **https://twitter.com/CurveFinance/status/1358706840780091393[Curve Finance shut down the Yearn Finance v2 pool]** after discovering a vulnerability.
+a| 
+
+| Primitive Finance
+| https://www.blockthreat.io/p/blockthreat-week-7-2021
+a| **https://primitivefinance.medium.com/whitehack-by-primitive-finance-most-funds-are-safe-user-action-required-4dd31c387b8[Primitive Finance hacked its own contracts]** after discovering a vulnerability.
+a| 
+
+| Hashmask NFT
+| https://www.blockthreat.io/p/blockthreat-week-7-2021
+a| **https://thehashmasks.medium.com/hashmask-art-sale-bug-report-13ccd66b55d7[Hashmask NFT vulnerability was patched]** after it was responsibly disclosed by **https://twitter.com/samczsun[samczsun]**. The vulnerability could have enabled an attacker to mint more than 16K Hashmasks.
+a| 
+
+| ForTube
+| https://www.blockthreat.io/p/blockthreat-week-7-2021
+a| **https://medium.com/the-force-protocol/fortube-security-vulnerability-fix-c5847359ba7d[ForTube patched a permission bypass vulnerability]** after it was responsibly disclosed by **https://twitter.com/samczsun[samczsun]**.
+a| 
+
+| Furucombo
+| https://www.blockthreat.io/p/blockthreat-week-8-2021
+a| On February 27th, 2021 **https://medium.com/furucombo/furucombo-post-mortem-march-2021-ad19afd415e[Furucombo platform was exploited]** by tricking into using **https://twitter.com/Kurt_M_Barry/status/1365876788757471234?s=20[a fake AAVE implementation]** which resulted in the loss of $15M across 21 different assets. **https://slowmist.medium.com/slowmist-analysis-of-the-furucombo-hack-28c9ae558db9[Multiple]** **https://peckshield.medium.com/the-furucombo-incident-analysis-cascading-trust-c90d22c7dda7[reports]** were **https://rekt.news/furucombo-rekt/[published]** dissecting a **https://cmichel.io/replaying-ethereum-hacks-furucombo/[complete exploit]**.
+a|
+
+| Yield Finance
+| https://www.blockthreat.io/p/blockthreat-week-8-2021
+a| On February 27th, 2021 **https://twitter.com/YeldF/status/1365623299552772096[Yield Finance reported that 166K DAI were stolen]** by what appears to be a whitehat hack. No additional information is available.
+a|
+
+| CryptoPunks
+| https://www.blockthreat.io/p/blockthreat-week-8-2021
+a| On February 24th, 2021 **https://twitter.com/vasa_develop/status/1364735120012238850[CryptoPunks auction was front-run using a flash-loan causing 1 Wei bid to win]** punk #1737.
+a|
+
+| Primitive Finance
+| https://www.blockthreat.io/p/blockthreat-week-8-2021
+a| **https://medium.com/immunefi/inside-the-war-room-that-saved-primitive-finance-6509e2188c86[Immunefi published a great post-mortem]** writeup on helping **https://primitivefinance.medium.com/postmortem-on-the-primitive-finance-whitehack-of-february-21st-2021-17446c0f3122[Primitive Finance save $1.3M]** of user funds after a vulnerability was discovered.
+a|
+
+| Powerpool
+| https://www.blockthreat.io/p/blockthreat-week-8-2021
+a| **https://medium.com/powerpool/team-statement-liquidity-mining-program-vesting-bug-ef9e08ec5117[Powerpool patched a liquidity mining vulnerability]** after it was responsibly disclosed.
+a|
+
+| Curve Finance
+| https://www.blockthreat.io/p/blockthreat-week-9-2021
+a| **https://twitter.com/CurveFinance/status/1367576697122525191[A vulnerability was discovered in deprecated Factory v1 pools on Curve Finance]**. No additional details or post-mortems are currently available.
+a| 
+
+| Dodo V2 pool
+| https://www.blockthreat.io/p/blockthreat-week-10-2021
+a| **https://twitter.com/CurveFinance/status/1367576697122525191[A vulnerability was discovered in deprecated Factory v1 pools on Curve Finance]**. No additional details or post-mortems are currently available.
+a|
+
+| Zerion
+| https://www.blockthreat.io/p/blockthreat-week-10-2021
+a| In February, 2021 **https://blog.zerion.io/post-mortem-on-zerions-asset-phishing-attack-4fa9516414a3[Zerion platform was tricked to list a malicious Balancer clone]** which resulted in the loss of $30K worth of funds.
+a|
+
+| True Seignorage Dollar DAO
+| https://www.blockthreat.io/p/blockthreat-week-11-2021
+a| On March 13, 2021 **https://twitter.com/trueseigniorage/status/1370956726489415683[True Seigniorage Dollar DAO was taken over]** by attackers after they acquired a majority stake. This allowed attackers to deploy an upgrade which was used to mint and later sell 11.8B TSD tokens.
+a|
+
+| Iron Finance vFarm
+| https://www.blockthreat.io/p/blockthreat-week-11-2021
+a| On March 16th, 2021 **https://ironfinance.medium.com/iron-finance-vfarms-incident-post-mortem-16-march-2021-114e58d1eaac[Iron Finance vFarm reward misconfiguration]** resulted in the loss of 170K worth of SIL tokens.
+a| 
+
+| SIL Finance
+| https://www.blockthreat.io/p/blockthreat-week-11-2021
+a| On March 18, 2021 **https://sil-finance.medium.com/follow-up-on-the-service-outage-all-funds-are-safu-7e90f91d8905[SIL Finance contract permissions vulnerability was exploited]** by a trading bot which resulted in the loss of $12.1M worth of SIL tokens. The anonymous bot operator returned all of the funds.
+a|
+
+| ElasticDAO
+| https://www.blockthreat.io/p/blockthreat-week-12-2021
+a| **https://medium.com/elasticdao/elasticdao-smart-contract-and-security-audits-400f424281b6[ElasticDAO fixed an infinite minting vulnerability]** after it was reported by **https://twitter.com/samczsun[samczsun]** and **https://twitter.com/tzhen[Tina Zhen]**. About $4.4M worth of ETH and EGT tokens were saved as a result of the responsible disclosure. Additional vulnerability details are available **https://forum.elasticdao.org/t/elip-2-bounty-payment-for-critical-vulnerability-found-by-samsczsun/120[here]**.
+a|
+
+| Vesper Finance & BT Finance
+| https://www.blockthreat.io/p/blockthreat-week-12-2021
+a| **https://medium.com/dedaub/yield-skimming-forcing-bad-swaps-on-yield-farming-397361fd7c72[Dedaub reported yield skimming vulnerabilities]** in Vesper Finance and BT Finance DeFi apps.
+a| 
+
+| PancakeSwap
+| https://www.blockthreat.io/p/blockthreat-week-12-2021
+a| **https://medium.com/immunefi/pancakeswap-lottery-vulnerability-postmortem-and-bug-4febdb1d2400[PancakeSwap patched a vulnerability in its lottery contract]** after it was responsibly disclosed through Immunefi.
+a| 
+
+| ForceDAO
+| https://www.blockthreat.io/p/blockthreat-week-13-2001
+a| On April 4th, 2021 **https://blog.forcedao.com/xforce-exploit-post-mortem-7fa9dcba2ac3[ForceDAO an insufficient validation vulnerability]** in the deposit function was **https://twitter.com/frankresearcher/status/1378633815111954432[exploited to steal 183 ETH (~$367K)]**. The contract was first exploited by a whitehat who later returned 15.8M FORCE ($9.6M) followed by two blackhats.
+a|
+
+| Polkatrain
+| https://www.blockthreat.io/p/blockthreat-week-14-2021
+a| On April 4th, 2021 **https://polkatrain-com.gitbook.io/polkatrian-en/the-response-for-hacker-attack-incident-from-polkatrain-team[Polkatrain on BSC rebate mechanism was exploited]** which resulted in the loss of $3M (57K DOT).
+a|
+
+| Uranium Logic
+| https://www.blockthreat.io/p/blockthreat-week-14-2021
+a| On April 7th, 2021 **https://twitter.com/ret2jazzy/status/1380014405316796419[Uranium Finance on BSC logic bug was exploited]** which resulted in the **https://uraniumfinance.medium.com/uranium-post-mortem-v2-compensations-aac4b0706d7d[theft of $1.5M worth of RADS]**. According to the **https://uraniumfinance.medium.com/uranium-post-mortem-v2-compensations-aac4b0706d7d[post-mortem]**, the Uranium team was able to persuade the attacker to return $1M by linking their identity to a Binance account.
+a|
+
+| Fei
+| https://www.blockthreat.io/p/blockthreat-week-14-2021
+a| **https://medium.com/immunefi/fei-protocol-vulnerability-postmortem-483f9a7e6ad1[A vulnerability in Fei reward logic]** was responsibly disclosed by **https://twitter.com/0xRevert[0xRevert]** using the **https://immunefi.com/bounty/feiprotocol/[Immunefi bug bounty]**.
+a| 
+
+| Ambisafe Etoken2
+| https://www.blockthreat.io/p/blockthreat-week-16-2021
+a| **https://medium.com/immunefi/fei-protocol-vulnerability-postmortem-483f9a7e6ad1[A vulnerability in Fei reward logic]** was responsibly disclosed by **https://twitter.com/0xRevert[0xRevert]** using the **https://immunefi.com/bounty/feiprotocol/[Immunefi bug bounty]**.
+a|
+
+| Primitive Finance
+| https://www.blockthreat.io/p/blockthreat-week-16-2021
+a| **https://medium.com/amber-group/exploiting-primitive-finances-approval-flaws-b86db031b4[A vulnerable user on Primitive Finance was helped to lock down their funds]** after the threat was responsibly disclosed by **https://www.ambergroup.io/[Amber Group]** developers.
+a|
+
+| Pancake V2
+| https://www.blockthreat.io/p/blockthreat-week-16-2021
+a| **https://twitter.com/nipun_pit/status/1385531250073427968[Pancake V2 integer rounding vulnerability]** was patched after responsibly disclosed by **https://twitter.com/nipun_pit[Nipun]** from Alpha Finance.
+a|
+
+| MakerDAO
+| https://www.blockthreat.io/p/blockthreat-week-16-2021
+a| **https://twitter.com/nipun_pit/status/1385531250073427968[Pancake V2 integer rounding vulnerability]** was patched after responsibly disclosed by **https://twitter.com/nipun_pit[Nipun]** from Alpha Finance.
+a| 
+
+| Uranium Finance
+| https://www.blockthreat.io/p/blockthreat-week-17-2021
+a| On April 27, 2021 **https://uraniumfinance.medium.com/exploit-d3a88921531c[Uranium Finance account balance calculation error]** was **https://slowmist.medium.com/slowmist-analysis-of-uranium-finances-hacked-event-9c9d11af7b2b[exploited]** which resulted in the **https://twitter.com/frankresearcher/status/1387347001172398086[theft of $51M]**. Interestingly, the team was about to push a fix before the contract was exploited leading to a suspicion of internal leak. This marks **https://uraniumfinance.medium.com/uranium-post-mortem-v2-compensations-aac4b0706d7d[the second time Uranium Finance got exploited]** this month.
+a| 
+
+| Spartan Protocol
+| https://www.blockthreat.io/p/blockthreat-week-17-2021
+a| On May 2, 2021 Spartan Protocol’s **https://peckshield-94632.medium.com/the-spartan-incident-root-cause-analysis-b14135d3415f[liquidity share calculation flaw]** was exploited which resulted in the **https://twitter.com/frankresearcher/status/1388860919694782466[theft of $30M]**. The BSC smart contract was previously **https://github.com/spartan-protocol/resources/blob/master/certik-audit.pdf[audited by CertiK]**.
+a|
+
+| Tokenlon
+| https://www.blockthreat.io/p/blockthreat-week-17-2021
+a| **https://tokenlon.medium.com/tokenlon-4-0-fee-incident-disclosure-9ee8b5fad564[Tokenlon team patched a critical vulnerability]** which could have resulted in funds theft. The vulnerability was disclosed by **https://twitter.com/samczsun[samczsun]** who also helped the team to secure the funds using **https://taichi.network/[Taichi Network]** to prevent front-running.
+a|
+
+| Value DeFi
+| https://www.blockthreat.io/p/blockthreat-week-18-2021
+a| On May 6th, 2021 **https://twitter.com/frankresearcher/status/1388860919694782466[Value DeFi was hacked]** after its pool got reinitialized. The attacker **https://www.rekt.news/value-rekt2/[drained $10M worth of crypto assets]**.
+a| 
+
+| Value DeFi
+| https://www.blockthreat.io/p/blockthreat-week-18-2021
+a| On May 8th, 2021 **https://peckshield.medium.com/valuedefi-incident-incorrect-weighted-constant-product-invariant-calculation-1bbaa220a02b[Value DeFi was hacked again due]** to invalid use of power() function. **https://www.rekt.news/value-rekt3/[Another $11M were stolen]**.
+a|
+
+| Rari Capital
+| https://www.blockthreat.io/p/blockthreat-week-18-2021
+a| On May 8th, 2021 **https://medium.com/rari-capital/5-8-2021-rari-ethereum-pool-post-mortem-60aab6a6f8f9[Rari Capital yield-generating strategy in Alpha Finance’s ibETH]** was **https://blocksecteam.medium.com/price-manipulation-attack-in-reality-again-raricapital-incident-8f2047bc3575[exploited]** which resulted in the **https://nipunp.medium.com/5-8-21-rari-capital-exploit-timeline-analysis-8beda31cbc1a[theft of 2600 ETH ($10M)]**. The attacker **https://www.rekt.news/rari-capital-rekt/[used funds they stole from the earlier Value DeFi hack]** making this **https://twitter.com/frankresearcher/status/1391087260125188099[the first cross-chain hack]**. Perpetrators also issued **https://twitter.com/bantg/status/1391054251388964867[a mocking on-chain message]**.
+a|
+
+| Meebit NFT
+| https://www.blockthreat.io/p/blockthreat-week-18-2021
+a| On May 8th, 2021 **https://cryptoslate.com/ultra-rare-meebit-nft-minted-via-exploit-sells-for-765000/[Meebit NFT generation logic was exploited]** to mint a highly valuable NFT worth $700K.
+a|
+
+| 0x
+| https://www.blockthreat.io/p/blockthreat-week-18-2021
+a| **https://gov.0x.org/t/post-mortem-zrx-treasury-patch/890[0x patched a vote inflation vulnerability]** after it was responsibly disclosed by **https://samczsun.com/[samczsun]**.
+a|
+
+| xToken
+| https://www.blockthreat.io/p/blockthreat-week-19-2021
+a| On May 12, 2021 **https://medium.com/xtoken/initial-report-on-xbnta-xsnxa-exploit-d6e784387f8e[xToken contracts were exploited]** to steal $25M.
+a| 
+
+| Bearn Finance
+| https://www.blockthreat.io/p/blockthreat-week-19-2021
+a| On May 16, 2021 **https://peckshield.medium.com/bearn-fi-incident-inconsistent-asset-denomination-between-vault-strategy-9b24b68ab1c0[Bearn Finance withdrawal logic vulnerability]** was exploited to steal $11M.
+a| 
+
+| Sovryn
+| https://www.blockthreat.io/p/blockthreat-week-19-2021
+a| **https://medium.com/immunefi/sovryn-loan-vulnerability-postmortem-ffaf4d1d688f[Sovryn patched a critical lending vulnerability]** after it was responsibly disclosed through Immunefi bug bounty.
+a|
+
+| Fei
+| https://www.blockthreat.io/p/blockthreat-week-19-2021
+a| **https://medium.com/fei-protocol/fei-bonding-curve-bug-post-mortem-98d2c6f271e9[Fei patched a critical vulnerability in its bonding curve]** after an internal code review.
+a| 
+
+| Fei
+| https://www.blockthreat.io/p/blockthreat-week-19-2021
+a| **https://medium.com/immunefi/fei-protocol-flashloan-vulnerability-postmortem-7c5dc001affb[Fei published detailed post-mortem and a PoC exploit]** for the recent flashloan vulnerability.
+a|
+
+| Yearn
+| https://www.blockthreat.io/p/blockthreat-week-19-2021
+a| Yearn patched two vulnerabilities in its **https://github.com/yearn/yearn-security/blob/master/disclosures/2021-05-13.md[StrategyProxy]** and **https://github.com/yearn/yearn-security/blob/master/disclosures/2021-05-14.md[SingleSidedCrvDai]** contacts.
+a|
+
+| MakerDAO
+| https://www.blockthreat.io/p/blockthreat-week-19-2021
+a| **https://forum.makerdao.com/t/end-flow-overflow-bug-postmortem/8027[Maker patched an overflow bug]** in its emergency shutdown function.
+a| 
+
+| Venus Protocol
+| https://www.blockthreat.io/p/blockthreat-week-20-2021
+a| On May 18, 2021 Venus Protocol price manipulation of the governance token resulted in **https://twitter.com/FrankResearcher/status/1394900186435096578[$200M+ in DeFi liquidations and $100M+ in bad debt]**.
+a| 
+
+| Bunny Finance
+| https://www.blockthreat.io/p/blockthreat-week-20-2021
+a| On May 20, 2021 Bunny Finance mint price vulnerability was exploited to **https://twitter.com/FrankResearcher/status/1395196961108774915[steal $45M+ worth of assets]**.
+a|
+
+| Bogged Finance
+| https://www.blockthreat.io/p/blockthreat-week-20-2021
+a| On May 22, 2021 **https://peckshield.medium.com/bogged-finance-incident-root-cause-analysis-718d53faad5c[Bogged Finance minting vulnerability was exploited]** to steal **https://boggedfinance.medium.com/bog-flash-loan-attack-what-happened-and-whats-next-token-migration-192a9d96b9b7[$3.6M worth of BOG token]**.
+a|
+
+| Charged Particles
+| https://www.blockthreat.io/p/blockthreat-week-20-2021
+a| **https://medium.com/immunefi/charged-particles-griefing-bug-fix-postmortem-d2791e49a66b[Charged Particles fixed a critical DoS/griefing vulnerability]** after it was responsibly disclosed by **https://twitter.com/unsafe_call[Alejandro Muñoz-McDonald]** through Immunefi.
+a|
+
+| Mushrooms Finance
+| https://www.blockthreat.io/p/blockthreat-week-20-2021
+a| **https://medium.com/immunefi/mushrooms-finance-theft-of-yield-bug-fix-postmortem-16bd6961388f[Mushrooms Finance fixed a vulnerability which allowed flash bots to steal yields]** after it was responsibly disclosed by Wen-Ding Li using Immunefi. The vulnerability was previously exploited to steal $222 worth of assets.
+a|
+
+| Yearn Finance
+| https://www.blockthreat.io/p/blockthreat-week-20-2021
+a| Yearn Finance patched a **https://github.com/yearn/yearn-security/blob/master/disclosures/2021-05-20.md[vulnerability in StrategyMakerETHDAIDelegate accounting logic]**. Yet another patch in the past few weeks from the Yearn Security team which appears to actively weed out flaws in their contracts.
+a|
+
+| Belt Finance
+| https://www.blockthreat.io/p/blockthreat-week-21-2021
+a| Yearn Finance patched a **https://github.com/yearn/yearn-security/blob/master/disclosures/2021-05-20.md[vulnerability in StrategyMakerETHDAIDelegate accounting logic]**. Yet another patch in the past few weeks from the Yearn Security team which appears to actively weed out flaws in their contracts.
+a|
+
+| BurgerSwap
+| https://www.blockthreat.io/p/blockthreat-week-21-2021
+a| On May 27, 2021 BurgerSwap **https://www.rekt.news/burgerswap-rekt/[reentrance vulnerability was exploited]** to steal **https://twitter.com/mudit__gupta/status/1398156036574306304[$7.2M worth of various crypto assets]**.
+a|
+
+| Wild Credit
+| https://www.blockthreat.io/p/blockthreat-week-21-2021
+a| On May 27, 2021 Wild Credit contract allowed it to be **https://twitter.com/mudit__gupta/status/1397888546686398470[reinitialized which resulted in the theft of $700K]**. Luckily the attacker was **https://twitter.com/_anishagnihotri/status/1397971686482493443[front-run by a bot]** which returned stolen funds back to the project.
+a|
+
+| JulSwap
+| https://www.blockthreat.io/p/blockthreat-week-21-2021
+a| On May 27, 2021 JulSwap was **https://justliquidity.medium.com/julswap-v2-upgrading-its-oracle-mechanism-to-chainlink-8ae53c71757d[exploited using flash loans]** to steal **https://twitter.com/mudit__gupta/status/1398179149102026754[$700K]**.
+a| 
+
+| Merlin Labs
+| https://www.blockthreat.io/p/blockthreat-week-21-2021
+a| On May 26, 2021 Merlin Labs, a Pancake Bunny clone on BSC, was exploited twice using the same **https://www.rekt.news/merlinlabs-rekt/[performance minting]** and a new **https://www.rekt.news/merlin2-rekt/[incorrect price calculation]** vulnerabilities resulting the loss of $680K and $540K respectively.
+a|
+
+| AutoShark Finance
+| https://www.blockthreat.io/p/blockthreat-week-21-2021
+a| On May 24, 2021 AutoShark Finance, a Pancake Bunny clone on BSC, reward mechanism was exploited using a flashloan which resulted in the loss of $750K (2.2K WBNB tokens).
+a|
+
+| Keep Network
+| https://www.blockthreat.io/p/blockthreat-week-21-2021
+a| Keep team fixed a bug which could lead to **https://medium.com/certora/certora-bug-disclosure-lost-signer-fees-in-the-tbtc-system-46d8a17b8afd[the loss of signer fees]** after the vulnerability was responsibly disclosed by **https://www.certora.com/[Certora]**.
+a|
+
+| PancakeHunny
+| https://www.blockthreat.io/p/blockthreat-week-22-2021
+a| On June 3, 2021 PancakeHunny, a Pancake Bunny clone on BSC, **https://watchpug.medium.com/pancakehunny-performance-fee-minting-attack-analysis-e347d12bfdde[reward mechanism was exploited using a flashloan]** which resulted in the loss of **https://medium.com/pancakehunny/pancakehunny-preliminary-incident-report-6da18bc3c0e6[$86K (216 WBNB tokens)]**.
+a|
+
+| EvoDeFi
+| https://www.blockthreat.io/p/blockthreat-week-23-2021
+a| On June 10, 2021 EvoDeFi **https://medium.com/@Knownsec_Blockchain_Lab/knownsec-blockchain-lab-evodefi-attack-event-analysis-e1cba8a789ce[reward calculation logic was exploited]** using a flash loan which resulted in the loss of **https://twitter.com/peckshield/status/1402925030300868609?s=21[$1M worth of GEN tokens]**.
+a|
+
+| Zapper
+| https://www.blockthreat.io/p/blockthreat-week-23-2021
+a| Zapper fixed **https://medium.com/zapper-protocol/post-mortem-sushiswap-uniswap-v2-zap-out-exploit-84e5d34603f0[a critical vulnerability in the permit function]** which under certain conditions could result in funds loss after it was responsibly disclosed through Immunefi.
+a|
+
+| 88mph
+| https://www.blockthreat.io/p/blockthreat-week-23-2021
+a| **https://medium.com/immunefi/88mph-function-initialization-bug-fix-postmortem-c3a2282894d3[88mph patched a critical function initialization vulnerability]** after it was responsibly disclosed by Ashiq Amien using Immunefi.
+a|
+
+| Alchemix Finance
+| https://www.blockthreat.io/p/blockthreat-week-24-2021
+a| On June 16, 2021 Alchemix Finance **https://slowmist.medium.com/slowmist-alchemix-hack-analysis-e8c9ec6c2ee3[reward calculation logic vulnerability]** which allowed users to **https://www.rekt.news/alchemix-rekt/[withdraw collateral without paying off loans]**. The vulnerability was exploited which resulted in the **https://forum.alchemix.fi/public/d/137-incident-report-06162021[loss of $6.53M]**. Alchemix has since launched **https://forum.alchemix.fi/public/d/150-aleth-return-program[a voluntary return program]** for those who benefited.
+a| 
+
+| Impossible Finance
+| https://www.blockthreat.io/p/blockthreat-week-24-2021
+a| On June 21 Impossible Finance **https://watchpug.medium.com/impossible-finance-exploit-root-cause-analysis-ba0ed7c151e4[LP contract design flaw]** was exploited with the help of a flash loan which resulted in the **https://medium.com/impossiblefinance/impossible-finance-v2-swap-jun-21st-postmortem-94e4b59ad490[loss of $500K]**.
+a| 
+
+| Zapper
+| https://www.blockthreat.io/p/blockthreat-week-24-2021
+a| Zapper patched **https://medium.com/immunefi/zapper-arbitrary-call-data-bug-fix-postmortem-d75a4a076ae9[a critical vulnerability which allowed arbitrary call payloads to their contracts]** after it was responsibly disclosed by **https://twitter.com/lucash_dev[Lucash-dev]** using Immunefi platform.
+a| 
+
+| Iron Finance
+| https://www.blockthreat.io/p/blockthreat-week-24-2021
+a| On June 16, 2021 Iron Finance **https://ironfinance.medium.com/iron-finance-post-mortem-17-june-2021-6a4e9ccf23f5[experienced a bank run]** when **https://jeiwan.net/posts/analysis-titan-fall/[a weakness in the stabilization mechanism]** pushed the price of **https://www.rekt.news/iron-finance-rekt/[TITAN token to 0]**. The crash has famously **https://www.theblockcrypto.com/post/108991/there-are-investments-and-there-are-flyers-mark-cuban-on-titans-collapse[affected Mark Cuban who called for DeFi regulation]**.
+a| 
+
+| Impossible Finance
+| https://www.blockthreat.io/p/blockthreat-week-25-2021
+a| On June 21, 2021 Impossible Finance **https://watchpug.medium.com/impossible-finance-exploit-root-cause-analysis-ba0ed7c151e4[LP contract design flaw]** was exploited which resulted in the **https://medium.com/impossiblefinance/impossible-finance-v2-swap-jun-21st-postmortem-94e4b59ad490[loss of $700K]**. **https://twitter.com/johndoughbull/status/1408362066600148995[Some of the funds were returned]** after an unknown action by BSC team.
+a| 
+
+| Eleven Finance
+| https://www.blockthreat.io/p/blockthreat-week-25-2021
+a| On June 22, 2021 Eleven Finance **https://peckshield.medium.com/eleven-finance-incident-root-cause-analysis-123b5675fa76[withdrawal logic vulnerability]** was exploited which resulted in the **https://www.rekt.news/11-rekt/[theft of $4.5M]**. **https://twitter.com/johndoughbull/status/1408362066600148995[Some of the funds were returned]** after an unknown action by BSC team.
+a|
+
+| xWin Finance
+| https://www.blockthreat.io/p/blockthreat-week-25-2021
+a| On June 24, 2021 xWin Finance **https://peckshield.medium.com/xwin-finance-incident-root-cause-analysis-71d0820e6bc1[slippage control weakness]** was exploited which resulted in the **https://xwin.medium.com/summary-of-the-misuse-of-flash-loan-against-xwin-protocol-a04f7719a0ee[theft of $270K]**.
+a|
+
+| SafeDollar
+| https://www.blockthreat.io/p/blockthreat-week-25-2021
+a| On June 27, 2021 SafeDollar **https://watchpug.medium.com/safedollar-exploit-root-cause-analysis-4b7ec6357a6d[reward logic vulnerability]** was exploited which resulted in the **https://safedollar.medium.com/safedollar-post-mortem-analysis-cb2769fe059[theft of $250K]**. Interestingly, the attack took place on Ethereum’s layer 2 network called Polygon (previously Matic).
+a|
+
+| Mushroom Finance
+| https://www.blockthreat.io/p/blockthreat-week-25-2021
+a| Mushroom Finance fixed **https://medium.com/immunefi/mushrooms-finance-logic-error-bug-fix-postmortem-780122821621[a logic error]** after it was responsibly disclosed by **https://twitter.com/ckksec[CKK Sec]**.
+a| 
+
+| SharedStake
+| https://www.blockthreat.io/p/blockthreat-week-25-2021
+a| **https://medium.com/badgerdao/sgt-early-timelock-withdraw-post-mortem-f4ac0d79ee36[SharedStake patched]** **https://medium.com/immunefi/sharedstake-insider-exploit-postmortem-17fa93d5c90e[a timelock vulnerability]** thanks to a responsible disclosure report by Lucash-dev.
+a| 
+
+| WildCredit
+| https://www.blockthreat.io/p/blockthreat-week-25-2021
+a| WildCredit patched **https://mobile.twitter.com/WildCredit/status/1406939127229026304[a reward distribution vulnerability]** after it was responsibly disclosed by **https://mobile.twitter.com/Mudit__Gupta[Mudit Gupta]**.
+a|
+
+| Merlin
+| https://www.blockthreat.io/p/blockthreat-week-26-2021
+a| On June 29, 2021 Merlin **https://twitter.com/peckshield/status/1409808532040343558[profit inflation vulnerability was exploited]** which resulted in **https://www.rekt.news/merlin3-rekt/[the loss of $330K]**.
+a|
+
+| NFTX
+| https://www.blockthreat.io/p/blockthreat-week-26-2021
+a| On June 29, 2021 NFTX **https://blog.nftx.org/nftx-v2-punk-incident-post-mortem/[asset validation error was exploited]** which resulted in the **https://twitter.com/squirtleth/status/1409906237764890636[theft of 2 CryptoPunk NFTs]**. Stolen NFTs were eventually bought back for 6 ETH ($12K).
+a|
+
+| PancakeSwap
+| https://www.blockthreat.io/p/blockthreat-week-26-2021
+a| PancakeSwap fixed **https://medium.com/immunefi/pancakeswap-logic-error-bug-fix-postmortem-f2d02adb6983[a logic bug which could result in the loss of $700K]** after it was responsibly disclosed by **https://twitter.com/junorouse[Juno]**.
+a|
+
+| Cream Finance
+| https://www.blockthreat.io/p/blockthreat-week-26-2021
+a| Cream Finance patched **https://medium.com/immunefi/cream-finance-insufficient-validation-bug-fix-postmortem-1ec7248e8865[a bug in a discontinued mining rewards contracts]** after it was responsibly disclosed by Armor’s Azeem.
+a|
+
+| Pods Finance
+| https://www.blockthreat.io/p/blockthreat-week-26-2021
+a| Pods Finance fixed **https://immunefi.medium.com/pods-finance-bug-fix-postmortem-61a576897ebd[a logic error which could result in the theft of yield]** after it was responsibly disclosed by Csanuragjain.
+a|
+
+| Yearn
+| https://www.blockthreat.io/p/blockthreat-week-26-2021
+a| Yearn awarded a $200K bounty to xyzaudits for **https://github.com/yearn/yearn-security/blob/master/disclosures/2021-06-29.md[a vulnerability that could have liquidated GenLevComp strategy debt position]**.
+a|
+
+| DeFi Plaza
+| https://www.blockthreat.io/p/blockthreat-week-27-2021
+a| On July 11, 2021 DeFi Plaza suffered from **https://twitter.com/BeTheb0x/status/1414688906570715144[an integer overflow vulnerability]** which was exploited **https://drive.google.com/file/d/12CcSiUt5oxXzLVubzyrC39PDYSYe9XJq/view[to steal $1.1M worth of liquidity]**.
+a| 
+
+| ChainSwap
+| https://www.blockthreat.io/p/blockthreat-week-27-2021
+a| On July 10, 2021 ChainSwap, a cross-chain bridge, **https://chain-swap.medium.com/chainswap-exploit-11-july-2021-post-mortem-6e4e346e5a32[exchange quota logic error was exploited]** which resulted in **https://twitter.com/real_n3o/status/1414071223940571139[the loss of $4.4M]**.
+a|
+
+| ChainSwap
+| https://www.blockthreat.io/p/blockthreat-week-27-2021
+a| On July 2, 2021 ChainSwap, a cross-chain bridge, was **https://chain-swap.medium.com/chainswap-post-mortem-and-compensation-plan-90cad50898ab[exploited which resulted in the loss of $800K]**. The attacker has since **https://medium.com/rai-finance/hacker-has-returned-part-of-the-rai-stolen-due-to-a-loophole-in-the-chainswap-contract-9b1161eafc51[returned 2.2M RAI]** after ChainSwap tracked stolen funds to Huobi and OKEx exchanges.
+a| 
+
+| DeFiPie
+| https://www.blockthreat.io/p/blockthreat-week-28-2021
+a| On July 12, 2021 DeFiPie **https://medium.com/defipie/hacking-investigation-85e07454f1c9[reentrancy vulnerability]** was exploited.
+a|
+
+| Axie Infinity
+| https://www.blockthreat.io/p/blockthreat-week-28-2021
+a| On July 13, 2021 Axie Inifinity **https://twitter.com/AxieInfinity[NFT marketplace was DDoS-ed]**.
+a| 
+
+| Ape Rocket
+| https://www.blockthreat.io/p/blockthreat-week-28-2021
+a| On July 13, 2021 Ape Rocket, a fork of PancakeBunny, **https://watchpug.medium.com/aperocket-finance-performance-fee-minting-incident-root-cause-analysis-b959c1e963ba[reward calculation bug]** was exploited twice on BSC and Polygon networks which resulted in **https://aperocket.medium.com/moving-forward-24b9ae22c428[the total loss of $1.2M]**.
+a| 
+
+| PancakeBunny
+| https://www.blockthreat.io/p/blockthreat-week-28-2021
+a| On July 16, 2021 PancakeBunny **https://pancakebunny.medium.com/polybunny-post-mortem-compensation-42b5c35ce957[reward calculation bug]** was exploited on Polygon network which resulted in **https://www.rekt.news/pancakebunny2-rekt/[the loss of $2.4M]**. This was the same bug exploited in Ape Rocket a few days earlier.
+a| 
+
+| SupDuck
+| https://www.blockthreat.io/p/blockthreat-week-28-2021
+a| On July 17, 2021 SupDuck **https://medium.com/@hype-eth?p=e684c1cbfda9[data on rare NFTs was extracted]** from the contract **https://opensea.io/assets/0x3fe1a4c1481c8351e91b64d5c398b159de07cbc5/8439?ref=0x2d2193f337a4e446c14caa5c90e7b5849203acd0[to purchase and sell a rare token]** with about 18 ETH profit.
+a|
+
+| Array Finance
+| https://www.blockthreat.io/p/blockthreat-week-28-2021
+a| On July 19, 2021 Array Finance **https://blocksecteam.medium.com/the-analysis-of-the-array-finance-security-incident-bcab555326c1[price calculation bug]** was exploited which resulted in **https://twitter.com/arrayfinance/status/1417119027948892168[the loss of $551K worth of crypto assets]**.
+a| 
+
+| MCDEX
+| https://www.blockthreat.io/p/blockthreat-week-28-2021
+a| MCDEX fixed an **https://medium.com/immunefi/mcdex-insufficient-validation-bug-fix-postmortem-182fc6cab899[insufficient validation bug]** after it was responsibly disclosed by **https://twitter.com/lucash_dev[Lucash-dev]** using Immunefi bug bounty program.
+a|
+
+| Sanshu Inu
+| https://www.blockthreat.io/p/blockthreat-week-29-2021
+a| On July 20, 2021 Sanshu Inu **https://blocksecteam.medium.com/the-analysis-of-the-sanshu-inu-security-incident-28c0c7c0e783[deflation mechanism flaw]** was exploited which resulted in the loss of $110K. Interestingly the attacker got front-run by an MEV searcher.
+a| 
+
+| PolyYeld Finance
+| https://www.blockthreat.io/p/blockthreat-week-30-2021
+a| On July 27, 2021 PolyYeld Finance vulnerability caused by **https://thoreum-finance.medium.com/what-exploit-happened-today-for-gocerberus-and-garuda-also-for-lokum-ybear-piggy-caramelswap-3943ee23a39f[improper handling of deflationary tokens]** was exploited which resulted in **https://twitter.com/peckshield/status/1420272942030594048[the loss of $250K]**.
+a|
+
+| Alchemix
+| https://www.blockthreat.io/p/blockthreat-week-30-2021
+a| Alchemix patched **https://medium.com/immunefi/alchemix-access-control-bug-fix-debrief-a13d39b9f2e0[a function access control vulnerability]** after it was responsibly disclosed by **https://twitter.com/ashiqamien?lang=en[Ashiq Amien]**.
+a|
+
+| Sablier
+| https://www.blockthreat.io/p/blockthreat-week-30-2021
+a| Sablier patched **https://medium.com/sablier/low-severity-recipient-cancellation-bug-post-mortem-f507fea75c95[a vulnerability which could allow an attacker to lock tokens in the contract]** after it was responsibly disclosed to the developer.
+a|
+
+| Popsicle Finance
+| https://www.blockthreat.io/p/blockthreat-week-31-2021
+a| On August 3, 2021 Popsicle Finance **https://popsiclefinance.medium.com/popsicle-finance-post-mortem-after-fragola-hack-f45b302362e0[lost $20.7M]** after **https://www.rekt.news/popsicle-rekt/[a vulnerability in its reward calculation mechanism]** was exploited.
+a|
+
+| Wault Finance
+| https://www.blockthreat.io/p/blockthreat-week-31-2021
+a| On August 4, 2021 Wault Finance lost $816K after a **https://inspexco.medium.com/wault-finance-incident-analysis-wex-price-manipulation-using-wusdmaster-contract-c344be3ed376[price pegging vulnerability]** in its smart contracts was exploited using flash loans.
+a| 
+
+| Casper DeFi
+| https://www.blockthreat.io/p/blockthreat-week-31-2021
+a| On August 4, 2021 Casper DeFi lost $172K after **https://casperdefi.medium.com/casper-defi-post-mortem-after-casper-token-hack-fe668f6722b9[a malicious insider took advantage of a backdoor]** they’ve embedded to mint and sell Casper tokens.
+a| 
+
+| Zerogoki
+| https://www.blockthreat.io/p/blockthreat-week-31-2021
+a| On August 8, 2021 Zerogoki lost $670K after an attacker **https://blocksecteam.medium.com/the-analysis-of-the-zerogoki-attack-da4e0807b184[fabricated a price oracle transaction]** as a result of compromised private keys or an unknown vulnerability.
+a| 
+
+| Teller
+| https://www.blockthreat.io/p/blockthreat-week-31-2021
+a| Teller fixed **https://medium.com/immunefi/teller-bug-fix-postmorten-and-bug-bounty-launch-b3f67a65c5ac[an unitialized proxy vulnerability]** after it was responsibly disclosed by Bugdefeat.
+a| 
+
+| Poly Network
+| https://www.blockthreat.io/p/blockthreat-week-32-2021
+a| On August 10, 2021 Poly Network, a cross-chain DeFi protocol, **https://www.rekt.news/polynetwork-rekt/[lost $611M]** worth of crypto assets in **https://blocksecteam.medium.com/the-retrospection-of-the-poly-network-hack-from-a-security-researcher-perspective-7b9f5c6f06d1[a sophisticated attack]** which spanned Ethereum, BSC, Polygon, and Ontology blockchains. Following the hack, Tether **https://twitter.com/paoloardoino/status/1425090760609832978[froze 33M USDT stolen by the attacker’s]** preventing them from making a deposit to Curve.fi until an Ethereum user, hanashiro\[.\]eth, **https://etherscan.io/tx/0xae2442c5b5721df8c190fd8f59b53b6dc56a875fb03035ad34276a598ddf7d31[gave them a heads up]** and was **https://etherscan.io/tx/0xdf3afc47c7914e06ddb1be19afcd769e558111d353e55273a62c4a96e6a6090f[handsomely rewarded with 13.37 ETH]**. In a bizarre twist, the attacker may have **https://slowmist.medium.com/the-analysis-and-q-a-of-poly-network-being-hacked-8112a35beb39[inadvertently leaked their identity]** which resulted in a days long **https://twitter.com/sniko_/status/1426539896102137859[on-chain conversation]** between Poly Network, Ethereum users, and the attacker **https://sites.google.com/view/hackersconfession/[negotiating the return of most]** of the stolen funds.
+a|
+
+| Punk Protocol
+| https://www.blockthreat.io/p/blockthreat-week-32-2021
+a| On August 10, 2021 Punk Protocol **https://medium.com/punkprotocol/punk-finance-fair-launch-incident-report-984d9e340eb[lost $8.95M]** after **https://www.rekt.news/punkprotocol-rekt/[contract dependencies were reset due to a missing modifier]**. The attackers themselves were front-run by a bot whose owner returned most of the funds with the exception of a $1M finders fee.
+a| 
+
+| Neko Network
+| https://www.blockthreat.io/p/blockthreat-week-32-2021
+a| On August 11, 2021 Neko Network lost $4M as a result of **https://blog.mazeprotocol.com/neko-hacking-incident-report-e46cdf179fd9[a logic error in its lending protocol]**.
+a| 
+
+| DAO Maker
+| https://www.blockthreat.io/p/blockthreat-week-32-2021
+a| On August 12, 2021 DAO Maker lost $7M after its **https://medium.com/daomaker/dao-maker-statement-thursday-12th-of-august-2c3bb0d1bb69[superuser private keys were compromised]**.
+a|
+
+|  Curve Bribe v1
+| https://www.blockthreat.io/p/blockthreat-week-32-2021
+a| On August 14, 2021 **https://thedefiant.io/andre-cronje-curve-bribe-tool/[Curve Bribe v1]** was **https://twitter.com/bantg/status/1426629982328180737[preemptively exploited by Yearn Security]** after the latter identified an unknown vulnerability.
+a|
+
+| xSurge
+| https://www.blockthreat.io/p/blockthreat-week-33-2021
+a| On August 16, 2021 xSurge **https://twitter.com/BlockSecTeam/status/1427482803134894080[reentrancy vulnerability]** was exploited which resulted in the theft of $4M worth of BNB.
+a| 
+
+| Pinecone Finance
+| https://www.blockthreat.io/p/blockthreat-week-33-2021
+a| On August 18, 2021 Pinecone Finance lost $17.5K after the attacker **https://medium.com/@PineconeFinance/post-mortem-of-pct-staking-vault-attack-714e1171e121[bypassed transaction validation implemented in the front-end]**.
+a| 
+
+| Sentinel
+| https://www.blockthreat.io/p/blockthreat-week-33-2021
+a| On August 21, 2021 Sentinel reported **https://twitter.com/Sentinel_co/status/1428802575625826308?s=20[a theft of $1M worth of DVPN tokens]** after a mnemonic phrase was leaked during **https://twitter.com/hitbtc/status/1429047764772655104?s=20[a swap with HitBTC exchange]**.
+a|
+
+| SushiSwap
+| https://www.blockthreat.io/p/blockthreat-week-33-2021
+a| SushiSwap patched **https://samczsun.com/two-rights-might-make-a-wrong/[a critical vulnerability in the DutchAuction contract]** caused by incorrect handling of msg.value after it was responsibly disclosed by samczsun. $350M were **https://www.paradigm.xyz/2021/08/two-rights-might-make-a-wrong/[rescued]** by force halting the auction.
+a| 
+
+| Pods Finance
+| https://www.blockthreat.io/p/blockthreat-week-33-2021
+a| Pods Finance patched **https://medium.com/immunefi/pods-finance-bug-fix-postmortem-61a576897ebd[a yield theft vulnerability]** after it was responsibly disclosed by Csanuragjain.
+a|
+
+| xDai
+| https://www.blockthreat.io/p/blockthreat-week-33-2021
+a| xDai patched **https://medium.com/immunefi/xdai-stake-arbitrary-call-method-bug-postmortem-f80a90ac56e3[an arbitrary method call vulnerability]** after it was responsibly disclosed by **https://mobile.twitter.com/0xadee028d[0xadee028d]**.
+a|
+
+| Polygon
+| https://www.blockthreat.io/p/blockthreat-week-33-2021
+a| Polygon patched **https://iosiro.com/blog/temporary-denial-of-service-vulnerability-disclosed-to-and-remediated-by-polygon[a DoS vulnerability]** in its StakeManagerProxy and StakeManager contracts after it was responsibly disclosed by **https://twitter.com/AshiqAmien[Ashiq Amien]**.
+a|
+
+| Dot Finance
+| https://www.blockthreat.io/p/blockthreat-week-34-2021
+a| On August 25, 2021 Dot Finance lost $429K after **https://medium.com/@Knownsec_Blockchain_Lab/knowsec-blockchain-lab-dot-finance-flash-loan-security-incident-analysis-98f7b5707a15[a reward calculation vulnerability]** was exploited using a flash loan.
+a|
+
+| xToken
+| https://www.blockthreat.io/p/blockthreat-week-34-2021
+a| On August 29, 2021 xToken lost $4.5M after **https://medium.com/xtoken/xsnx-post-mortem-666d35071f38[a function access control error]** was exploited by an attacker.
+a|
+
+| CREAM Finance
+| https://www.blockthreat.io/p/blockthreat-week-34-2021
+a| On August 30, 2021 CREAM Finance **https://medium.com/cream-finance/c-r-e-a-m-finance-post-mortem-amp-exploit-6ceb20a630c5[reentrancy vulnerability]** was exploited which resulted in **https://www.rekt.news/cream-rekt/[the loss of $18.8M]**.
+a|
+
+| Tidal Finance
+| https://www.blockthreat.io/p/blockthreat-week-34-2021
+a| Tidal Finance patched **http://tidal%20finance%20logic%20error%20bug%20fix%20postmortem/[a logic error vulnerability]** after it was responsibly disclosed by Csanuragjain.
+a|
+
+| OpenZeppelin
+| https://www.blockthreat.io/p/blockthreat-week-34-2021
+a| OpenZeppelin **https://twitter.com/openzeppelin/status/1430999829748932614[patched]** a **https://medium.com/immunefi/openzeppelin-bug-fix-postmortem-66d8c89ed166[critical reentrancy vulnerability]** in TimelockController after it was responsibly disclosed by Zb3 through Immunefi.
+a|
+
+| Siren Protocol
+| https://www.blockthreat.io/p/blockthreat-week-35-2021
+a| On September 2nd, 2021 Siren Protocol **https://twitter.com/BlockSecTeam/status/1433682132090568705[reentrancy bug]** was exploited which resulted in **https://medium.com/siren-markets/siren-incident-report-264e57f16d7[the loss of $3.5M worth of tokens]**.
+a|
+
+| DAO Maker
+| https://www.blockthreat.io/p/blockthreat-week-35-2021
+a| On September 3rd, 2021 DAO Maker **https://www.rekt.news/daomaker-rekt/[lost $4M]** after an attacker was able to **https://slowmist.medium.com/intelligence-of-slowmist-zone-dao-makers-vesting-system-was-hacked-5825e4828969[reinitialize the token and empty funds]**.
+a|
+
+| NowSwap Protocol
+| https://www.blockthreat.io/p/blockthreat-week-37-2021
+a| On September 15, 2021 NowSwap Protocol **https://twitter.com/BlockSecTeam/status/1438101621049741313[logic error vulnerability]** was successfully exploited which resulted in the $1M loss.
+a|
+
+| SushiSwap MISO
+| https://www.blockthreat.io/p/blockthreat-week-37-2021
+a| On September 17, 2021 SushiSwap MISO auction was **https://hackmd.io/@Omakase/B1cocZQmK[hacked in a supply chain attack]** which resulted in the https://www.rekt.news/jaypegs-automart-rekt/[] **https://www.rekt.news/jaypegs-automart-rekt/[theft of $3.1M worth of ETH]**. In a truly bizarre twist **https://www.coindesk.com/tech/2021/09/17/3m-was-stolen-but-the-real-steal-is-these-kia-sedonas-say-anonymous-developers/[all of the funds were returned after the perpetrator was identified and received a miso soup order to his home address]** along with a call from a lawyer.
+a|
+
+| OpenZeppelin
+| https://www.blockthreat.io/p/blockthreat-week-37-2021
+a| OpenZeppelin issued a patch and **https://forum.openzeppelin.com/t/security-advisory-initialize-uups-implementation-contracts/15301[preemptively initialized 170+ UUPS Proxy smart contracts]** across Ethereum, Polygon, xDAI, BSC, and Avalanche after **https://forum.openzeppelin.com/t/uupsupgradeable-vulnerability-post-mortem/15680[a critical vulnerability in the UUPS proxy pattern]** was disclosed independently by **https://geeksg.medium.com/my-journey-to-disclosing-a-vulnerability-that-can-lock-up-millions-in-ethereum-dcb5754ad9bc[Raymond Yeh]** and **https://www.iosiro.com/blog/openzeppelin-uups-proxy-vulnerability-disclosure[Ashiq Amien]**.
+a|
+
+| Yearn
+| https://www.blockthreat.io/p/blockthreat-week-37-2021
+a| Yearn patched a bug which could **https://twitter.com/0xbunnygirl/status/1438632697929158656[allow an escrow contract to be re-initialized]** if the ownership is renounced.
+a|
+
+| Pancakebunny
+| https://www.blockthreat.io/p/blockthreat-week-37-2021
+a| Pancakebunny patched **https://twitter.com/pancakebunnyfin/status/1438015469403836417[a critical vulnerability in polyBUNNY zap function]** after it was responsibly disclosed through Immunefi.
+a|
+
+| OpenSea
+| https://www.blockthreat.io/p/blockthreat-week-37-2021
+a| On September 7, 2021 OpenSea bug resulted in **https://www.theblockcrypto.com/post/116924/opensea-bug-destroys-100000-worth-of-nfts-including-historical-ens-name[42 NFTs getting sent to to a burn address]**.
+a|
+
+| Yam Finance
+| https://www.blockthreat.io/p/blockthreat-week-37-2021
+a| On September 12, 2021 Yam Finance **https://yamfinance.medium.com/yam-minting-incident-postmortem-b76afd1aef45[accidentally minted 20B YAM]**.
+a| 
+
+| Arbitrum
+| https://www.blockthreat.io/p/blockthreat-week-37-2021
+a| On September 17, 2021 **https://medium.com/offchainlabs/arbitrum-one-outage-report-d365b24d49c[Arbitrum Sequencer halted]** as a result of a bug.
+a| 
+
+| POAP
+| https://www.blockthreat.io/p/blockthreat-week-39-2021
+a| On September 29, 2021 POAP’s **https://twitter.com/poapxyz/status/1443564262492938242[minting system was compromised]** resulting in several NFTs being fraudulently issued and sold.
+a| 
+
+| Autoshark Finance
+| https://www.blockthreat.io/p/blockthreat-week-39-2021
+a| On October 1, 2021 Autoshark Finance **https://twitter.com/peckshield/status/1444102942689148933[swap mining vulnerability was exploited]** to steal $581K worth of FIN tokens.
+a| 
+
+| Compound Finance
+| https://www.blockthreat.io/p/blockthreat-week-39-2021
+a| On September 29, 2021 Compound Finance introduced an **https://twitter.com/Mudit__Gupta/status/1443454935639609345[award calculation vulnerability]** after deploying an unaudited **https://compound.finance/governance/proposals/62[community governance proposal]**. As a result up to **https://twitter.com/bantg/status/1444643482216304641[$162M worth of COMP]** tokens are vulnerable to excessive awards with about **https://twitter.com/bantg/status/1445119511154380801[$120M already claimed]**.
+a| 
+
+| Belt Finance
+| https://www.blockthreat.io/p/blockthreat-week-39-2021
+a| Belt Finance patched **https://medium.com/immunefi/belt-finance-logic-error-bug-fix-postmortem-39308a158291[a critical logic error]** bug after it was responsibly disclosed by Alexander Schlindwein.
+a| 
+
+| an MEV searcher contract
+| https://www.blockthreat.io/p/blockthreat-week-40-2021
+a| On October 7, 2021 an **https://twitter.com/bertcmiller/status/1446416008709918732[MEV searcher contract]** was exploited for **https://etherscan.io/tx/0xcc25b53fdc5d2aa46a87d83a5e00e2821819acc7a6af9d1553516798b4ba6aae[$1M worth of WETH]** due to insufficient access controls. Interestingly, the attacker **https://twitter.com/bertcmiller/status/1446803067580657667[sent $100K back]** with **https://etherscan.io/tx/0xeaac25cad195c65c7e84dcc716e0b92d9f875435e93dab329e566e7900cdc2ac[a message to the victim]**.
+a| 
+
+| Rocket Pool and Lido
+| https://www.blockthreat.io/p/blockthreat-week-40-2021
+a| Rocket Pool and **https://blog.lido.fi/vulnerability-response-update/[Lido]** patched **https://github.com/rocket-pool/rocketpool-research/blob/master/Reports/withdrawal-creds-exploit.md[a critical withdrawal credential vulnerability]** that could be used to attack ETH2 staking pools after it was responsibly disclosed by Dmitri Tsumak.
+a| 
+
+| Indexed Finance
+| https://www.blockthreat.io/p/blockthreat-week-41-2021
+a| On October 14, 2021 Indexed Finance **https://ndxfi.medium.com/indexed-attack-post-mortem-b006094f0bdc[reported a theft of $16M]** after **https://twitter.com/Mudit__Gupta/status/1448884940964188167[a flaw in the price calculation logic]** was exploited using flash loans. Interestingly **https://twitter.com/bertcmiller/status/1448728068353368069[MEV bots also got a piece of the pie]** landing two successful arbitrage transactions worth $2M+. In response, Indexed Finance published a 3 part series (**https://hackmd.io/fSTndeFZQPOPKYxlafaNIA[1]**, **https://hackmd.io/@laurenceday/H1OylawSF[2]**, **https://hackmd.io/@d1ll0n/Hyd-uCuBK#Update-on-BogHolder-Connection[3]**) with evidence pointing to the identity of the thief and forward this information to law enforcement after their demands to return stolen money were not met. Throughout the incident, the attacker used their **https://twitter.com/ZetaZeroes[anonymous Twitter account]** to **https://twitter.com/ZetaZeroes/status/1449559819988488194[mock Indexed Finance]** and to **https://twitter.com/ZetaZeroes/status/1449559932278296576[scorn front-runners]** for stealing his arbitrage.
+a| 
+
+| WeDEX
+| https://www.blockthreat.io/p/blockthreat-week-42-2021
+a| On October 18, 2021 WeDEX lost $100K after an attacker was able to continuously **https://twitter.com/certikorg/status/1450138029104959488[call emergencyWithdraw() function due to a misconfiguration]**.
+a| 
+
+| PancakeHunny
+| https://www.blockthreat.io/p/blockthreat-week-42-2021
+a| On October 20, 2021 PancakeHunny **https://watchpug.medium.com/pancakehunny-flash-loan-minting-attack-analysis-8bde42b1fe20[lost $2.3M worth]** https://watchpug.medium.com/pancakehunny-flash-loan-minting-attack-analysis-8bde42b1fe20[] of BNB and TUSD after **https://medium.com/@Knownsec_Blockchain_Lab/knownsec-blockchain-lab-pancakehunny-attack-analysis-239d3ec4eb7c[a profit inflation bug]** was exploited by an attacker **https://twitter.com/peckshield/status/1450801612901937152[further amplified by flash loans]**.
+a|
+
+| Unlock Protocol
+| https://www.blockthreat.io/p/blockthreat-week-42-2021
+a| Unlock Protocol patched a critical vulnerability that could **https://unlock-protocol.com/blog/udt-disclosure[allow anyone to burn tokens from arbitrary addresses]**.
+a| 
+
+| Polygon
+| https://www.blockthreat.io/p/blockthreat-week-42-2021
+a| Polygon fixed **https://medium.com/immunefi/polygon-double-spend-bug-fix-postmortem-2m-bounty-5a1db09db7f1[a critical double spend vulnerability]** in the Plasma Bridge after it was **https://gerhard-wagner.medium.com/double-spending-bug-in-polygons-plasma-bridge-2e0954ccadf1[responsibly disclosed by Gerhard Wagner]**. The whitehat collected a cool $2M bounty thanks to the bug bounty program hosted by Immunefi.
+a| 
+
+| Alpha Finance
+| https://www.blockthreat.io/p/blockthreat-week-42-2021
+a| Alpha Finance patched a vulnerability in its Alpha Homora V2 contract which **https://blog.alphafinance.io/mev-bots-uniswap-implicit-assumptions/[allowed MEV bots to arbitrage a significant slippage percentage]**.
+a| 
+
+| CREAM Finance
+| https://www.blockthreat.io/p/blockthreat-week-43-2021
+a| On October 27, 2021 CREAM Finance **https://medium.com/cream-finance/post-mortem-exploit-oct-27-507b12bb6f8e[lost $130M]** in **https://mudit.blog/cream-hack-analysis/[a sophisticated exploit used to manipulate collateral value]**. Based on the on-chain analysis there are likely **https://medium.com/breadcrumbsapp/cream-finance-exploit-3-tracing-of-funds-7884e628b4b1[two actors]** who perpetrated the hack. Following the incident, AAVE lending platform https://twitter.com/AaveAave/status/1454119658840367114[] **https://twitter.com/AaveAave/status/1454119658840367114[issued an emergency governance proposal]** to fix a similar potential exploit as **https://www.theblockcrypto.com/post/122570/justin-sun-withdraws-billions-of-dollars-worth-of-crypto-from-aaves-lending-pools[investors urgently pulled billions]**.
+a| 
+
+| MCN Uniswap Pool
+| https://www.blockthreat.io/p/blockthreat-week-43-2021
+a| On October 29, 2021 **https://twitter.com/lostbutlucky/status/1454345344704204804[multiple MCN Uniswap pools were drained]** by an attacker exploiting an **https://etherscan.io/address/0xc047c42554c6495c85108ae8ee66fa4e3b88176d#code[unprotected burn function]** in the token’s contract. As things often happen in the dark forest, the original **https://etherscan.io/tx/0xe27d2850ebbb6c4aef57580cd4633689d5f960ed7849779ad6f669573a898bfd[attacker transaction]** was **https://etherscan.io/tx/0xd091afe6b37256ebb3dd703a9646b27aaf7ce7fe8832778886ba0216361f7f00[front ran by an MEV bot]** which claimed a $172K reward.
+a| 
+
+| AutoShark Finance
+| https://www.blockthreat.io/p/blockthreat-week-43-2021
+a| On October 29, 2021 AutoShark Finance **https://medium.com/autosharkfin/post-mortem-review-on-economic-attack-af27e76b746e[lost $2M]** after **https://twitter.com/peckshield/status/1454026801869590529[a reward calculation vulnerability got exploited]**.
+a| 
+
+| Robo Vault
+| https://www.blockthreat.io/p/blockthreat-week-43-2021
+a| Robo Vault patched a critical **https://medium.com/@RoboVault/post-mortem-next-steps-3556820b7470[vulnerability in its price calculation logic]** which could be **https://twitter.com/FP_Crypto/status/1453437385405046787[manipulated by flash loans]**. The vulnerability was responsibly disclosed by **https://twitter.com/FP_Crypto[FP\_Crypto]**.
+a| 
+
+| Ondo Finance
+| https://www.blockthreat.io/p/blockthreat-week-43-2021
+a| Ondo Finance caught **https://medium.com/@ondolabs/ondo-finance-admin-actions-a59bb3328051[a logic error (transposition of variables)]** in its Sushi staking strategy.
+a| 
+
+| Take Profit Finance
+| https://www.blockthreat.io/p/blockthreat-week-44-2021
+a| On October 23, 2021, an attacker **https://takeprofit.medium.com/profit-attack-post-mortem-cb319e8b73ac[exploited a reward calculation logic]** in Take Profit Finance, a BSC-based DeFi project, to gain $400K.
+a| 
+
+| Pixel Vault’s Planet DAO token
+| https://www.blockthreat.io/p/blockthreat-week-44-2021
+a| On October 30, 2021 a vulnerability in the Pixel Vault’s Planet DAO token approval mechanism was exploited to **https://twitter.com/pixelvault_/status/1455294908709982215[mint tokens by burning PUNKS comic NFTs the attackers did not own]**.
+a| 
+
+| Rari Fuse
+| https://www.blockthreat.io/p/blockthreat-week-44-2021
+a| On November 2, 2021, Rari Fuse protocol was exploited with **https://twitter.com/mudit__gupta/status/1455627465678749696[a price manipulation exploit]** which resulted in the loss of $3M.
+a| 
+
+| Vesper Finance
+| https://www.blockthreat.io/p/blockthreat-week-44-2021
+a| On November 3, 2021, Vesper Finance lost $3M in **https://medium.com/@Knownsec_Blockchain_Lab/knownsec-blockchain-lab-vesperfi-finance-hack-incident-analysis-db77ba01d3ba[yet another TWAP price manipulation attack]**.
+a| 
+
+| Synapse
+| https://www.blockthreat.io/p/blockthreat-week-44-2021
+a| On November 6, 2021, Synapse, a cross-chain protocol, **https://medium.com/@Knownsec_Blockchain_Lab/knownsec-blockchain-lab-synapse-cross-chain-bridge-attack-event-analysis-5c3752400e48[lost $8M due to incorrect price calculation using an external AMM]**.
+a| 
+
+| Inspex
+| https://www.blockthreat.io/p/blockthreat-week-44-2021
+a| Inspex fixed a flaw in its farm smart contract which could have **https://inspexco.medium.com/killswitch-farm-claiming-issue-resolved-c6ba64b545a5[allowed users to claim more assets than expected]** after a friendly notification from the KillSwitch team.
+a| 
+
+| Curve
+| https://www.blockthreat.io/p/blockthreat-week-45-2021
+a| On November 10, 2021 Curve suffered **https://www.coindesk.com/business/2021/11/11/curve-wars-heat-up-emergency-dao-invoked-after-clear-governance-attack/[an attempted governance attack by Mochi]** which minted large amounts of its USDM token to purchase CVX tokens used in voting. Curve responded with an emergency DAO action to **https://gov.curve.fi/t/the-curve-emergency-dao-has-killed-the-usdm-gauge/2307[restrict Mochi ability to vote in changes in the protocol]**.
+a| 
+
+| Welnance
+| https://www.blockthreat.io/p/blockthreat-week-45-2021
+a| On November 13, 2021 Welnance, a BSC-based DeFi project, **https://inspexco.medium.com/welnances-incident-analysis-wel-price-manipulation-9020617452[lost $100K in an oracle price manipulation attack]**.
+a| 
+
+| OpenSea
+| https://www.blockthreat.io/p/blockthreat-week-45-2021
+a| OpenSea patched **https://twitter.com/FUCKINGRUG/status/1457418922257383425[a critical vulnerability which could allow bad actors to mint NFTs on behalf of unwilling 3rd parties]** after it was responsibly disclosed by @fuckingrug. **https://www.investing.com/news/cryptocurrency-news/nft-platform-opensea-fails-to-prevent-security-issues-2671543[The disclosure process itself caused some disagreement]** in negotiating the bounty size.
+a| 
+
+| Harvest Finance
+| https://www.blockthreat.io/p/blockthreat-week-45-2021
+a| Harvest Finance patched **https://medium.com/immunefi/harvest-finance-uninitialized-proxies-bug-fix-postmortem-ea5c0f7af96b[a vulnerability in its proxy contract]** after it was responsibly disclosed by the Dedaub team using Immunefi.
+a| 
+
+| Nerve Bridge
+| https://www.blockthreat.io/p/blockthreat-week-46-2021
+a| On November 15, 2021 Nerve Bridge lost $585K after a **https://blocksecteam.medium.com/the-analysis-of-nerve-bridge-security-incident-ead361a21025[reward manipulation vulnerability]** was exploited to drain fUSDT and UST pools. The vulnerability is identical to the one previously exploited on the Synapse Bridge which itself a fork of vulnerable Saddle.Finance. The latter created a MetaPool implementation by translating Curve’s Vyper implementation into Solidity.
+a| 
+
+| Zenon Network
+| https://www.blockthreat.io/p/blockthreat-week-46-2021
+a| On November 20, 2021 Zenon Network $1M BNB pool was emptied after an **https://twitter.com/peckshield/status/1462165620506742784[attacker called an unprotected burn function]** to manipulate the LP price.
+a| 
+
+| Formation Fi
+| https://www.blockthreat.io/p/blockthreat-week-46-2021
+a| On November 21, 2021 Formation Fi lost $100K after an attacker **https://twitter.com/BlockSecTeam/status/1462217067545841668[exploited insufficient validation of the fee parameter]** to empty USDT wallet.
+a| 
+
+- https://formation.fi
+- https://twitter.com/FormationFi 84k
+- looks like the contracts are not on Github https://github.com/Formation-Finance
+- https://etherscan.io/address/0xcb6afdc84e8949ddf49ab00b5b351a5b0f65a723#code#F1#L32[they are on Etherscan]
+
+| Celo’s Optics bridge
+| https://www.blockthreat.io/p/blockthreat-week-46-2021
+a| On November 21, 2021 Celo’s Optics bridge was compromised after **https://forum.celo.org/t/optics-recovery-mode/2452[an unknown party activated a recovery mode]** giving them access to all funds locked in the contract. cLabs team alleged insider threat as a likely culprit.
+a| 
+
+- emergency Recovery Mode of smart contracts was activated by an unknown party
+- it seems they didn't steal any funds AND the product was migrated to accounts with new owners (what they call v2)
+- lesson: https://forum.celo.org/t/optics-recovery-mode/2452/24[emit events]
+
+| Enzyme Finance
+| https://www.blockthreat.io/p/blockthreat-week-46-2021
+a| Enzyme Finance **https://twitter.com/enzymefinance/status/1461445533235613700[patched a unknown critical vulnerability in its vaults]** after receiving a notification from a third party.
+a| 
+
+| OpenZeppelin
+| https://www.blockthreat.io/p/blockthreat-week-46-2021
+a| OpenZeppelin fixed **https://medium.com/chainsecurity/totalsupply-inconsistency-in-erc1155-nft-tokens-8f8e3b29f5aa[a supply calculation bug in ERC1155Supply]**.
+a| 
+
+| Wanaka Farm
+| https://www.blockthreat.io/p/blockthreat-week-47-2021
+a| On November 11, 2021 Wanaka Farm lost $1m as a result of **https://medium.com/verichains/someone-has-just-hacked-1m-from-wanaka-farm-wana-afaeb8c32ab0[a race condition with a backend API]**.
+a| 
+
+| Formation Finance
+| https://www.blockthreat.io/p/blockthreat-week-47-2021
+a| On November 21, 2021 Formation Finance **https://twitter.com/blocksecteam/status/1462216654570463238[lost $100K]** as a result of **https://medium.com/@Knownsec_Blockchain_Lab/knownsec-blockchain-lab-formation-fi-flash-loan-security-incident-analysis-8a24555f8356[insufficient validation of the fee parameter]**.
+a| 
+
+| OlympusDAO
+| https://www.blockthreat.io/p/blockthreat-week-47-2021
+a| On November 22, 2021 OlympusDAO lost $1.43M as a result of **https://www.theblockcrypto.com/post/125170/olympusdao-mistake-lets-user-spend-50000-to-buy-1-43-million-in-ohm[a vulnerability in its bond contract]**.
+a| 
+
+| Ploutoz Finance
+| https://www.blockthreat.io/p/blockthreat-week-47-2021
+a| On November 23, 2021 Ploutoz Finance was exploited with **https://twitter.com/peckshield/status/1463113809111896065[an oracle price manipulation exploit]** which resulted in the theft of $365K worth of tokens.
+a| 
+
+| Lever Network
+| https://www.blockthreat.io/p/blockthreat-week-47-2021
+a| On November 26, 2021 Lever Network lost $650K due to **https://levernetwork.medium.com/full-report-of-the-lever-hack-ee508cf7488c[insufficient checks in liability calculation]**.
+a| 
+
+| dYdX
+| https://www.blockthreat.io/p/blockthreat-week-47-2021
+a| On November 27, 2021 dYdX **https://twitter.com/dydxprotocol/status/1464572467872247815[performed a self hack]** with the help of samczsun to rescue potentially vulnerable funds.
+a| 
+
+| Enzyme Finance
+| https://www.blockthreat.io/p/blockthreat-week-47-2021
+a| Enzyme Finance patched a critical **https://medium.com/immunefi/enzyme-finance-price-oracle-manipulation-bug-fix-postmortem-4e1f3d4201b5[price oracle manipulation vulnerability]** after it was responsibly disclosed by setuid0 using Immunefi platform.
+a| 
+
+| Wolf Game NFT
+| https://www.blockthreat.io/p/blockthreat-week-47-2021
+a| Wolf Game NFT patched **https://twitter.com/not__stoops/status/1462638499316699137[reentrancy]** and **https://muellerberndt.medium.com/wolf-game-herdsmans-report-5802c9d477bd[weak PRNG]** vulnerabilities after responsible disclosure by notstoops and analysis from Bernhard Mueller.
+a| 
+
+| MonoX
+| https://www.blockthreat.io/p/blockthreat-week-48-2021
+a| On November 30, 2021 **https://medium.com/@Knownsec_Blockchain_Lab/knownsec-blockchain-lab-i-kill-myself-monox-finance-security-incident-analysis-2dcb4d5ac8f[MonoX lost $31M after a price calculation bug]** was exploited to manipulate the MONO token exchange rate.
+a| 
+
+| Bitclout
+| https://www.blockthreat.io/p/blockthreat-week-48-2021
+a| Bitclout **https://zengo.com/critical-vulnerability-in-bitclout/[fixed a double spending bug]** after it was responsibly disclosed by ZenGo researcher.
+a| 
+
+| Mdex Xsquid/HT pool
+| https://www.blockthreat.io/p/blockthreat-week-48-2021
+a| Slowmist reports on **https://slowmist.medium.com/another-attack-due-to-deflationary-token-compatibility-issues-214f9f0a55df[a vulnerability in the Mdex Xsquid/HT pool in its handling of deflationary tokens]**.
+a| 
+|===
